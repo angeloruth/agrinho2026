@@ -7,10 +7,10 @@
 }
 
 html {
-    font-size: 100%; 
+    font-size: 100%;
+    scroll-behavior: smooth; /* Garante que o navegador trate as âncoras de forma suave nativamente */
 }
 
-/* ACESSIBILIDADE DE TECLADO (WCAG) */
 *:focus {
     outline: 3px solid #ffb703 !important;
     outline-offset: 3px;
@@ -38,9 +38,7 @@ html {
     font-weight: bold;
     text-decoration: none;
 }
-.pular-link:focus {
-    top: 0;
-}
+.pular-link:focus { top: 0; }
 
 body {
     background-color: #f4f7f5;
@@ -59,7 +57,6 @@ body {
     justify-content: flex-end;
     flex-wrap: wrap;
 }
-
 .barra-acessibilidade button {
     background-color: #ffffff;
     color: #1b4332;
@@ -71,7 +68,7 @@ body {
     border-radius: 4px;
 }
 
-/* TOPO E LINKS-BOTÃO DE NAVEGAÇÃO */
+/* HEADER & MENU */
 header {
     background-color: #1b4332;
     color: #fff;
@@ -83,19 +80,15 @@ header {
     top: 0;
     z-index: 1000;
 }
-
 header .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #74c69d;
 }
-
 header nav {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
 }
-
 header nav a {
     color: #fff;
     text-decoration: none;
@@ -104,63 +97,42 @@ header nav a {
     font-size: 1rem;
     transition: color 0.3s;
 }
+header nav a:hover { color: #74c69d; text-decoration: underline; }
 
-header nav a:hover {
-    color: #74c69d;
-    text-decoration: underline;
-}
-
-/* Transformando links de navegação adicionais em botões semânticos limpos */
-.btn-nav-link {
-    background: transparent;
-    color: #fff;
-    border: none;
-    font-weight: 600;
-    font-size: 1rem;
-    margin-left: 20px;
-    cursor: pointer;
-    transition: color 0.3s;
-}
-.btn-nav-link:hover {
-    color: #74c69d;
-    text-decoration: underline;
-}
-
-/* BOTÃO INTERATIVO DA SIDEBAR */
+/* BOTÃO INTERATIVO DA GALERIA */
 .btn-sidebar-toggle {
-    background-color: #2d6a4f;
+    background: linear-gradient(135deg, #2d6a4f, #1b4332);
     color: #fff;
-    border: none;
-    padding: 8px 16px;
-    margin-left: 20px;
+    border: 1px solid #52b788;
+    padding: 10px 18px;
+    margin-left: 25px;
     font-weight: bold;
     font-size: 0.95rem;
-    border-radius: 4px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background 0.3s;
 }
 .btn-sidebar-toggle:hover {
-    background-color: #52b788;
+    transform: scale(1.03);
+    background: linear-gradient(135deg, #52b788, #2d6a4f);
 }
 
-/* MENU LATERAL SLIDER (SIDEBAR) */
+/* INTERFACE PROFISSIONAL DO MENU LATERAL (SIDEBAR) */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -400px;
-    width: 400px;
+    right: -420px;
+    width: 420px;
     height: 100vh;
     background-color: #fff;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.15);
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
     z-index: 1500;
     display: flex;
     flex-direction: column;
-    transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-.sidebar.aberto {
-    right: 0;
-}
+.sidebar.aberto { right: 0; }
 
 .sidebar-header {
     background-color: #1b4332;
@@ -170,130 +142,89 @@ header nav a:hover {
     justify-content: space-between;
     align-items: center;
 }
+.sidebar-header h2 { font-size: 1.3rem; }
+#btnFecharMenuLateral { background: transparent; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
 
-.sidebar-header h2 {
-    font-size: 1.3rem;
-}
+.sidebar-conteudo { padding: 25px; overflow-y: auto; flex: 1; }
+.sidebar-subtitulo { font-weight: bold; color: #1b4332; margin: 20px 0 10px 0; font-size: 1.1rem; border-left: 4px solid #52b788; padding-left: 8px; }
+.sidebar-texto { font-size: 0.95rem; color: #555; margin-bottom: 20px; }
 
-#btnFecharMenuLateral {
-    background: transparent;
-    border: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.sidebar-conteudo {
-    padding: 25px;
-    overflow-y: auto;
-    flex: 1;
-}
-
-.sidebar-subtitulo {
-    font-weight: bold;
-    color: #1b4332;
-    margin: 20px 0 8px 0;
-    font-size: 1.1rem;
-    border-left: 4px solid #52b788;
-    padding-left: 8px;
-}
-
-/* ARQUITETURA DO CARROSSEL DE IMAGENS (SLIDER) */
+/* RECONSTRUÇÃO DA GALERIA: SISTEMA DE CARROSSEL DESLIZANTE */
 .carrossel-container {
     position: relative;
     width: 100%;
-    height: 220px;
     margin-top: 15px;
-    border-radius: 8px;
+}
+.carrossel-wrapper {
+    width: 100%;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
-
-.carrossel-slides {
+.carrossel-trilho {
+    display: flex;
+    width: 300%; /* Espaço linear para os 3 slides alinhados horizontalmente */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Deslize horizontal fluido */
+}
+.carrossel-slide {
     width: 100%;
-    height: 100%;
     position: relative;
+    background-color: #000;
 }
-
-.slide-item {
-    position: absolute;
-    top: 0;
-    left: 0;
+.carrossel-slide img {
     width: 100%;
-    height: 100%;
-    opacity: 0; /* Esconde por padrão */
-    transition: opacity 0.5s ease-in-out; /* Transição de esmaecimento suave */
-    z-index: 1;
-}
-
-/* Exibe o slide configurado ativo via JS */
-.slide-item.ativo {
-    opacity: 1;
-    z-index: 2;
-}
-
-.slide-item img {
-    width: 100%;
-    height: 100%;
+    height: 220px;
     object-fit: cover;
+    display: block;
 }
-
 .slide-legenda {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(27, 67, 50, 0.85);
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
     color: #fff;
-    padding: 8px;
-    font-size: 0.85rem;
+    padding: 15px 10px 8px 10px;
+    font-size: 0.9rem;
     font-weight: 600;
     text-align: center;
 }
 
-/* SETAS E CONTROLES DO SLIDER */
-.seta-carrossel {
+/* BOTÕES FLUTUANTES DO CARROSSEL */
+.carrossel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    color: #1b4332;
-    border: none;
+    background-color: rgba(27, 67, 50, 0.85);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.3);
     width: 36px;
     height: 36px;
     border-radius: 50%;
-    font-size: 0.9rem;
+    font-size: 1rem;
     cursor: pointer;
     z-index: 10;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s, color 0.2s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+    transition: background-color 0.2s;
 }
-.seta-carrossel:hover {
-    background-color: #1b4332;
-    color: #fff;
-}
-.seta-esquerda { left: 10px; }
-.seta-direita { right: 10px; }
+.carrossel-btn:hover { background-color: #52b788; }
+.btn-esq { left: -12px; }
+.btn-dir { right: -12px; }
 
-/* OVERLAY ESCURO DE SUPORTE */
+/* OVERLAY */
 .sidebar-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0; width: 100vw; height: 100vh;
     background-color: rgba(0,0,0,0.5);
     z-index: 1400;
-    display: none;
-    opacity: 0;
+    display: none; opacity: 0;
     transition: opacity 0.3s ease;
 }
-.sidebar-overlay.visivel {
-    display: block;
-    opacity: 1;
-}
+.sidebar-overlay.visivel { display: block; opacity: 1; }
 
 /* HERO BANNER */
 .hero {
@@ -311,33 +242,20 @@ header nav a:hover {
 .hero h1 { font-size: 2.5rem; margin-bottom: 20px; }
 .hero p { font-size: 1.25rem; max-width: 600px; margin-bottom: 30px; }
 .hero button {
-    background-color: #52b788;
-    color: #0c2217;
-    border: none;
-    padding: 12px 30px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background 0.3s;
+    background-color: #52b788; color: #0c2217;
+    border: none; padding: 12px 30px; font-size: 1.1rem; font-weight: bold;
+    cursor: pointer; border-radius: 5px; transition: background 0.3s;
 }
 .hero button:hover { background-color: #74c69d; }
 
-/* PILARES / CARDS */
+/* PILARES */
 .features { padding: 60px 10%; text-align: center; }
 .features h2 { font-size: 2.2rem; color: #1b4332; margin-bottom: 40px; }
 .cards-container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
-
 .card {
-    background-color: #fff;
-    flex: 1;
-    min-width: 250px;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    border-top: 5px solid #52b788;
-    transition: transform 0.3s;
-    text-align: left;
+    background-color: #fff; flex: 1; min-width: 250px; padding: 30px;
+    border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-top: 5px solid #52b788; transition: transform 0.3s; text-align: left;
 }
 .card:hover { transform: translateY(-5px); }
 .imagem-cartao { width: 100%; height: 180px; object-fit: cover; border-radius: 4px; margin-bottom: 15px; }
@@ -347,46 +265,32 @@ header nav a:hover {
 .interactive-section { background-color: #e8f5e9; padding: 60px 10%; text-align: center; }
 .interactive-section h2 { color: #1b4332; font-size: 2rem; margin-bottom: 15px; }
 .quiz-container { max-width: 500px; margin: 20px auto 0 auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-
 .pergunta-bloco { text-align: left; margin-bottom: 20px; border-bottom: 1px dashed #ced4da; padding-bottom: 15px; }
 .pergunta-texto { display: block; font-weight: bold; color: #1b4332; margin-bottom: 8px; font-size: 1rem; }
 .quiz-container .select-quiz { width: 100%; padding: 12px; font-size: 0.95rem; border: 2px solid #52b788; border-radius: 5px; background-color: #fff; }
-
-.quiz-container button {
-    background-color: #1b4332;
-    color: #fff;
-    border: none;
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100%;
-    transition: background 0.3s;
-}
+.quiz-container button { background-color: #1b4332; color: #fff; border: none; padding: 12px 25px; font-size: 1.1rem; font-weight: bold; cursor: pointer; border-radius: 5px; width: 100%; transition: background 0.3s; }
 .quiz-container button:hover { background-color: #2d6a4f; }
 .resultado-box { margin-top: 20px; padding: 15px; font-weight: bold; border-radius: 5px; display: none; }
 
-/* RODAPÉ */
+/* FOOTER */
 footer { background-color: #1b4332; color: #fff; text-align: center; padding: 20px; margin-top: 40px; }
 
-/* ALTO CONTRASTE MODIFIERS */
+/* ALTO CONTRASTE MODIFICADORES */
 body.alto-contraste { background-color: #000000 !important; color: #ffffff !important; }
 body.alto-contraste header, body.alto-contraste footer, body.alto-contraste .barra-acessibilidade, body.alto-contraste .interactive-section, body.alto-contraste .sidebar-header { background-color: #000000 !important; border-bottom: 2px solid #fff; }
-body.alto-contraste .card, body.alto-contraste .quiz-container, body.alto-contraste .sidebar, body.alto-contraste .galeria-item { background-color: #000000 !important; border: 2px solid #ffffff !important; color: #ffffff !important; }
+body.alto-contraste .card, body.alto-contraste .quiz-container, body.alto-contraste .sidebar, body.alto-contraste .carrossel-wrapper { background-color: #000000 !important; border: 2px solid #ffffff !important; color: #ffffff !important; }
 body.alto-contraste h1, body.alto-contraste h2, body.alto-contraste h3, body.alto-contraste .logo, body.alto-contraste .pergunta-texto, body.alto-contraste .sidebar-subtitulo { color: #ffff00 !important; }
 body.alto-contraste button, body.alto-contraste select, body.alto-contraste .quiz-container .select-quiz { background-color: #ffff00 !important; color: #000000 !important; border: 2px solid #ffffff !important; }
 body.alto-contraste header nav a, body.alto-contraste .slide-legenda { color: #ffffff !important; }
+body.alto-contraste .sidebar-texto { color: #eee; }
 
-/* MOBILE RESPONSIVO */
+/* RESPONSIVIDADE (MOBILE) */
 @media (max-width: 768px) {
     header { flex-direction: column; gap: 15px; text-align: center; }
-    header nav { flex-direction: column; gap: 10px; }
-    header nav a, .btn-nav-link { margin-left: 0; margin-bottom: 5px; }
-    .btn-sidebar-toggle { margin-left: 0; width: 100%; }
+    header nav { flex-direction: column; gap: 12px; width: 100%; }
+    header nav a { margin-left: 0; font-size: 1.1rem; }
+    .btn-sidebar-toggle { margin-left: 0; width: 100%; text-align: center; }
     .sidebar { width: 100%; right: -100%; }
     .hero h1 { font-size: 1.8rem; }
-    .hero p { font-size: 1rem; }
     .features, .interactive-section { padding: 40px 5%; }
-    .card { max-width: 100%; }
 }
