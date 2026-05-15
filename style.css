@@ -1,67 +1,217 @@
+/* REGRAS GERAIS: Zera o comportamento padrão de todos os navegadores */
 * {
-.gallery img {
-  width: 100%;
-  border-radius: 15px;
-  object-fit: cover;
+    margin: 0;          /* Remove espaços em branco externos que vêm de fábrica */
+    padding: 0;         /* Remove espaços em branco internos que vêm de fábrica */
+    box-sizing: border-box; /* Impede que bordas aumentem o tamanho total das caixas */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Estilo da letra */
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
+/* O FUNDO DO SITE: Controla a página inteira */
+body {
+    background-color: #f4f7f5; /* Cor do fundo (um cinza bem claro esverdeado) */
+    color: #333;               /* Cor das letras (um cinza escuro para não cansar os olhos) */
+    line-height: 1.6;          /* Espaçamento entre as linhas de um texto */
 }
 
-form input,
-form textarea {
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
+/* O TOPO: Barra escura do menu superior */
+header {
+    background-color: #1b4332; /* Cor de fundo (Verde floresta escuro) */
+    color: #fff;               /* Cor das letras (Branco) */
+    display: flex;             /* Ativa o modo de alinhar coisas lado a lado */
+    justify-content: space-between; /* Empurra o logotipo para a esquerda e o menu para a direita */
+    align-items: center;       /* Centraliza o logotipo e o menu verticalmente */
+    padding: 20px 10%;         /* Espaço interno para os textos não grudarem nas bordas */
+    position: sticky;          /* Faz o topo ficar colado na tela mesmo ao rolar para baixo */
+    top: 0;                    /* Garante que ele grude exatamente no início da tela */
+    z-index: 1000;             /* Faz o menu flutuar por cima de qualquer outra foto ou texto */
 }
 
-form button {
-  padding: 15px;
-  border: none;
-  background: #a8e063;
-  color: #1f4d2e;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
+/* Estilo do Logotipo */
+header .logo {
+    font-size: 24px;           /* Tamanho do texto */
+    font-weight: bold;         /* Deixa a letra gordinha (negrito) */
+    color: #52b788;            /* Cor do texto (Verde folha claro) */
 }
 
+/* Estilo dos Links do Menu */
+header nav a {
+    color: #fff;               /* Cor do link (Branco) */
+    text-decoration: none;     /* Remove aquela linha sublinhada padrão de links */
+    margin-left: 20px;         /* Cria um espaço de separação entre os links */
+    transition: color 0.3s;    /* Faz a troca de cor durar 0.3 segundos (efeito suave) */
+}
+
+/* Quando o mouse passa por cima do link do menu */
+header nav a:hover {
+    color: #52b788;            /* Altera a cor do texto para verde folha claro */
+}
+
+/* PAINEL DE ABERTURA: Bloco da foto grande de entrada */
+.hero {
+    /* Coloca uma película escura sobre a foto da fazenda para o texto branco aparecer */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    height: 70vh;              /* Define que o painel vai ocupar 70% da altura da tela */
+    display: flex;             /* Ativa o alinhamento de itens */
+    flex-direction: column;    /* Organiza os itens um embaixo do outro (em coluna) */
+    justify-content: center;   /* Centraliza tudo verticalmente */
+    align-items: center;       /* Centraliza tudo horizontalmente */
+    text-align: center;        /* Centraliza os textos */
+    padding: 0 20px;           /* Margem de segurança nas laterais */
+}
+
+.hero h1 {
+    font-size: 48px;           /* Tamanho do título principal */
+    margin-bottom: 20px;       /* Empurra o parágrafo de baixo para dar espaço */
+}
+
+.hero p {
+    font-size: 20px;           /* Tamanho do texto de apoio */
+    max-width: 600px;          /* Impede que o texto estique muito para as laterais */
+    margin-bottom: 30px;       /* Empurra o botão de baixo para dar espaço */
+}
+
+/* O Botão do Painel */
+.hero button {
+    background-color: #52b788; /* Cor de fundo (Verde folha claro) */
+    color: #1b4332;            /* Cor do texto do botão (Verde escuro) */
+    border: none;              /* Remove a borda padrão feia */
+    padding: 12px 30px;        /* Engrossa o botão (12px cima/baixo, 30px lados) */
+    font-size: 18px;           /* Tamanho da letra dentro do botão */
+    font-weight: bold;         /* Letra em negrito */
+    cursor: pointer;           /* Transforma a seta do mouse na mãozinha de clique */
+    border-radius: 5px;        /* Arredonda os cantos do botão */
+    transition: background 0.3s; /* Deixa a troca de cor suave ao passar o mouse */
+}
+
+/* Quando o mouse passa por cima do botão */
+.hero button:hover {
+    background-color: #74c69d; /* Muda para um verde ainda mais clarinho */
+}
+
+/* SEÇÃO DE CONTEÚDO: Bloco onde ficam os cartões */
+.features {
+    padding: 60px 10%;         /* Afasta este bloco do topo e das laterais */
+    text-align: center;        /* Centraliza os títulos */
+}
+
+.features h2 {
+    font-size: 36px;           /* Tamanho do título "Nossos Pilares" */
+    color: #1b4332;            /* Cor verde escuro */
+    margin-bottom: 40px;       /* Espaço antes de começarem os cartões */
+}
+
+/* Organizador dos Cartões */
+.cards-container {
+    display: flex;             /* Coloca os cartões um ao lado do outro */
+    justify-content: space-between; /* Espalha os cartões preenchendo o espaço igualmente */
+    gap: 20px;                 /* Cria uma distância fixa entre um cartão e outro */
+    flex-wrap: wrap;           /* Se a tela for pequena (celular), joga os cartões para baixo */
+}
+
+/* Estilo de Cada Cartão Individual */
+.card {
+    background-color: #fff;    /* Cor de fundo interna (Branco) */
+    flex: 1;                   /* Faz todos os cartões terem exatamente o mesmo tamanho */
+    min-width: 250px;          /* Impede o cartão de esmagar menos que 250px no celular */
+    padding: 30px;             /* Espaço interno para o texto não socar nas bordas do cartão */
+    border-radius: 8px;        /* Arredonda os cantos do cartão */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Cria uma sombra bem leve atrás do cartão */
+    border-top: 5px solid #52b788; /* Adiciona um detalhe de linha verde no topo do cartão */
+    transition: transform 0.3s; /* Deixa a animação de movimento suave */
+}
+
+/* Quando o mouse passa por cima do cartão */
+.card:hover {
+    transform: translateY(-5px); /* Faz o cartão subir de leve (5 pixels) dando efeito de foco */
+}
+
+.card h3 {
+    color: #1b4332;            /* Cor do título interno do cartão */
+    margin-bottom: 15px;       /* Espaço entre o título do cartão e o textinho dele */
+}
+
+/* O RODAPÉ: Faixa final na base da página */
 footer {
-  text-align: center;
-  padding: 25px;
-  background: #163522;
-  color: white;
+    background-color: #1b4332; /* Fundo verde escuro */
+    color: #fff;               /* Texto branco */
+    text-align: center;        /* Centraliza o texto */
+    padding: 20px;             /* Espaço interno para dar altura ao rodapé */
+    margin-top: 40px;          /* Empurra o rodapé para longe do bloco de cima */
 }
 
-#topBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2f6b3d;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
+/* ========================================== */
+/* NOVO CÓDIGO: CONFIGURAÇÃO DAS FOTOS DOS CARTÕES */
+/* ========================================== */
+.imagem-cartao {
+    width: 100%;             /* Faz a foto ocupar 100% do espaço horizontal do cartão */
+    height: 180px;           /* Trava a altura para que todas as fotos fiquem do mesmo tamanho */
+    object-fit: cover;       /* Ajusta e corta a foto de forma inteligente para não distorcer */
+    border-radius: 4px;      /* Deixa as bordinhas da foto levemente arredondadas */
+    margin-bottom: 20px;     /* Empurra o título do cartão para baixo, criando um respiro */
 }
 
-@media(max-width: 900px) {
-  .sidebar {
+.imagem-cartao {
     width: 100%;
-    height: auto;
-    position: relative;
-  }
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
 
-  .content {
-    margin-left: 0;
+/* Estilo do Painel Interativo */
+.interactive-section {
+    background-color: #e8f5e9; /* Fundo verde bem clarinho para dar destaque */
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.interactive-section h2 {
+    color: #1b4332;
+    margin-bottom: 15px;
+}
+
+.quiz-container {
+    max-width: 500px;
+    margin: 20px auto 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.quiz-container select {
     width: 100%;
-  }
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #52b788;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
 
-  body {
-    flex-direction: column;
-  }
+.quiz-container button {
+    background-color: #1b4332;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.quiz-container button:hover {
+    background-color: #2d6a4f;
+}
+
+/* Caixa onde a mensagem do resultado aparece */
+.resultado-box {
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: none; /* Começa escondida e só aparece no clique */
 }
