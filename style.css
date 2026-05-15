@@ -276,3 +276,37 @@ body.alto-contraste select {
 body.alto-contraste header nav a {
     color: #ffffff !important;
 }
+
+/* Ajustes do Simulador Avançado */
+.pergunta-bloco {
+    text-align: left;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ced4da;
+    padding-bottom: 15px;
+}
+
+.pergunta-texto {
+    font-weight: bold;
+    color: #1b4332;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+body.alto-contraste .pergunta-texto {
+    color: #ffff00 !important;
+}
+
+.quiz-container .select-quiz {
+    width: 100%;
+    padding: 12px;
+    font-size: 15px;
+    border: 2px solid #52b788;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+body.alto-contraste .quiz-container .select-quiz {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+}
