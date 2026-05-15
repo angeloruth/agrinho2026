@@ -76,6 +76,24 @@
 
     </main>
 
+        <!-- Seção Interativa: Simulador Sustentável -->
+        <section id="simulador" class="interactive-section">
+            <h2>Avalie sua Prática Agrícola</h2>
+            <p>Selecione a técnica mais utilizada na sua produção para medir o nível de sustentabilidade:</p>
+            
+            <div class="quiz-container">
+                <select id="opcaoQuiz">
+                    <option value="">-- Escolha uma opção --</option>
+                    <option value="positivo">Uso de bioinsumos, plantio direto e rotação de culturas</option>
+                    <option value="neutro">Uso moderado de químicos combinado com tecnologia de precisão</option>
+                    <option value="negativo">Uso intensivo de defensivos agrícolas tradicionais sem monitoramento</option>
+                </select>
+                
+                <button id="btnVerificar">Analisar Impacto</button>
+                <div id="resultadoQuiz" class="resultado-box"></div>
+            </div>
+        </section>
+    
     <!-- RODAPÉ: A faixa final na base da página -->
     <footer>
         <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
