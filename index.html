@@ -13,7 +13,7 @@
 
     <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
     <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
-        <button id="btnContraste" aria-label="Ativar Alto Contraste">🌓 Alternar Contraste</button>
+        <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
         <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar Letra</button>
         <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir Letra</button>
     </div>
@@ -22,95 +22,121 @@
     <header role="banner">
         <div class="logo" id="logoSite">AgroSustentável</div>
         <nav role="navigation" aria-label="Menu Principal">
-            <a href="#inicio" class="link-navegacao">Início</a>
-            <a href="#pilares" class="link-navegacao">Pilares</a>
-            <a href="#simulador" class="link-navegacao">Simulador</a>
-            <button id="btnAbrirMenuLateral" class="btn-sidebar-toggle" aria-label="Abrir galeria de fotos" aria-expanded="false" aria-controls="menuLateral">
-                📸 Inovações no Campo
+            <a href="#inicio">Início</a>
+            <a href="#pilares">Pilares</a>
+            <a href="#simulador">Simulador</a>
+            <!-- Botão Moderno com efeito de pulso para abrir o Menu de Conhecimento -->
+            <button id="btnAbrirMenuLateral" class="btn-sidebar-toggle" aria-label="Abrir menu de tópicos e artigos" aria-expanded="false" aria-controls="menuLateral">
+                📚 Conhecimento
             </button>
         </nav>
     </header>
 
-    <!-- MENU LATERAL RETRÁTIL (SIDEBAR PROFISSIONAL) -->
-    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Painel de Informações e Fotos">
+    <!-- MENU LATERAL RETRÁTIL (Navegação para páginas externas) -->
+    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Menu de Artigos e Esclarecimentos">
         <div class="sidebar-header">
-            <h2>Galeria & Inovações</h2>
+            <h2>Artigos & Esclarecimentos</h2>
             <button id="btnFecharMenuLateral" aria-label="Fechar menu lateral">✖</button>
         </div>
-        <div class="sidebar-conteudo">
-            <p class="sidebar-subtitulo">Tecnologia Aplicada</p>
-            <p class="sidebar-texto">O monitoramento automatizado e a análise em tempo real evitam desperdícios drásticos de insumos no bioma.</p>
+        <nav class="sidebar-conteudo" aria-label="Links de Conhecimento do Agro">
+            <p class="sidebar-instrucao">Clique em um dos tópicos abaixo para acessar nosso portal completo de esclarecimentos:</p>
             
-            <!-- CARROSSEL MODERNO DESLIZANTE -->
-            <div class="carrossel-container">
-                <div class="carrossel-wrapper">
-                    <div id="carrosselTrilho" class="carrossel-trilho">
-                        <div class="carrossel-slide">
-                            <img src="assets/drone.jpg.png" alt="Drone operando na lavoura">
-                            <div class="slide-legenda">Monitoramento por Drone</div>
+            <ul class="sidebar-lista-links">
+                <li>
+                    <a href="tecnologia.html" class="sidebar-link-item">
+                        <span class="link-icone">🤖</span>
+                        <div class="link-textos">
+                            <h3>1. Agricultura de Precisão</h3>
+                            <p>Uso prático de drones, sensores IoT e Inteligência Artificial no campo.</p>
                         </div>
-                        <div class="carrossel-slide">
-                            <img src="assets/planta.jpg" alt="Manejo sustentável de solo">
-                            <div class="slide-legenda">Proteção do Solo</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="solo.html" class="sidebar-link-item">
+                        <span class="link-icone">🌱</span>
+                        <div class="link-textos">
+                            <h3>2. Manejo Regenerativo do Solo</h3>
+                            <p>Técnicas de plantio direto e rotação de culturas para proteção da terra.</p>
                         </div>
-                        <div class="carrossel-slide">
-                            <img src="assets/trigo.jpg.png" alt="Colheita de trigo dourado">
-                            <div class="slide-legenda">Alta Produtividade</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="agua.html" class="sidebar-link-item">
+                        <span class="link-icone">💧</span>
+                        <div class="link-textos">
+                            <h3>3. Gestão Hídrica Inteligente</h3>
+                            <p>Sistemas modernos de irrigação automatizada por gotejamento.</p>
                         </div>
-                    </div>
-                </div>
-                <!-- CONTROLES FLUTUANTES DO CARROSSEL -->
-                <button class="carrossel-btn btn-esq" id="btnSlideAnterior" aria-label="Foto anterior">❮</button>
-                <button class="carrossel-btn btn-dir" id="btnSlideProximo" aria-label="Próxima foto">❯</button>
-            </div>
-        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="carbono.html" class="sidebar-link-item">
+                        <span class="link-icone">☁️</span>
+                        <div class="link-textos">
+                            <h3>4. Neutralização de Carbono</h3>
+                            <p>Como o agronegócio moderno está reduzindo e retendo gases estufa.</p>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="biodiversidade.html" class="sidebar-link-item">
+                        <span class="link-icone">🐝</span>
+                        <div class="link-textos">
+                            <h3>5. Preservação da Biodiversidade</h3>
+                            <p>O papel dos polinizadores e das matas ciliares na produtividade.</p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </aside>
 
-    <!-- Fundo escuro ao abrir o menu lateral -->
+    <!-- Camada escura de fundo (Overlay) -->
     <div id="overlaySidebar" class="sidebar-overlay"></div>
 
     <!-- CORPO DO SITE -->
     <main id="conteudo-principal" role="main">
         
-        <!-- Bloco 1: Banner Hero -->
+        <!-- Bloco 1: Banner de abertura (Hero) -->
         <section id="inicio" class="hero" aria-labelledby="titulo-principal">
             <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
             <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
             <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Saiba Mais</button>
         </section>
 
-        <!-- Bloco 2: Seção de Pilares -->
+        <!-- Bloco 2: Seção de conteúdo explicativo -->
         <section id="pilares" class="features" aria-labelledby="titulo-pilares">
-            <h2 id="titulo-pilares">Nossos Pilares</h2>
+            <h2>Nossos Pilares</h2>
             <div class="cards-container">
                 
                 <article class="card" tabindex="0">
-                    <img src="assets/drone.jpg.png" alt="Drone branco monitorando plantação de soja" class="imagem-cartao">
+                    <img src="assets/drone.jpg.png" alt="Drone voando sobre uma plantação verdejante" class="imagem-cartao">
                     <h3>Tecnologia</h3>
                     <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
                 </article>
 
                 <article class="card" tabindex="0">
-                    <img src="assets/planta.jpg" alt="Mãos segurando terra com pequeno broto crescendo" class="imagem-cartao">
+                    <img src="assets/planta.jpg" alt="Mãos segurando terra com um pequeno broto crescendo" class="imagem-cartao">
                     <h3>Preservação</h3>
                     <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
                 </article>
 
                 <article class="card" tabindex="0">
-                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado" class="imagem-cartao">
+                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado sob o sol" class="imagem-cartao">
                     <h3>Produção</h3>
-                    <p>Alimento de alta qualidade gerado com pegada de carbono reduzida.</p>
+                    <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
                 </article>
 
             </div>
         </section>
 
-        <!-- Bloco 3: Diagnóstico Interativo -->
+        <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
         <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
-            <h2 id="titulo-simulador">Diagnóstico de Sustentabilidade Agrícola</h2>
+            <h2>Diagnóstico de Sustentabilidade Agrícola</h2>
             <p id="instrucao-quiz">Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
             
             <div class="quiz-container">
+                
                 <div class="pergunta-bloco">
                     <label for="p1" class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</label>
                     <select id="p1" class="select-quiz" required aria-describedby="instrucao-quiz">
@@ -142,13 +168,13 @@
                 </div>
                 
                 <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade">Calcular Nota Final</button>
+                
                 <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
 
     </main>
 
-    <!-- RODAPÉ -->
     <footer role="contentinfo">
         <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
     </footer>
