@@ -8,6 +8,9 @@
 </head>
 <body>
 
+    <!-- LINK DE ACESSIBILIDADE OCULTO (WCAG): Permite pular o menu via tecla TAB -->
+    <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo principal</a>
+
     <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
     <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
         <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
@@ -25,8 +28,8 @@
         </nav>
     </header>
 
-    <!-- CORPO DO SITE -->
-    <main role="main">
+    <!-- CORPO DO SITE (id conectado ao link de acessibilidade) -->
+    <main id="conteudo-principal" role="main">
         
         <!-- Bloco 1: Banner de abertura -->
         <section id="inicio" class="hero" aria-labelledby="titulo-principal">
@@ -38,26 +41,25 @@
         <!-- Bloco 2: Seção de conteúdo explicativo -->
         <section id="pilares" class="features" aria-labelledby="titulo-pilares">
             <h2 id="titulo-pilares">Nossos Pilares</h2>
-            
             <div class="cards-container">
                 
-                <!-- Cartão 1 (Tecnologia) -->
+                <!-- Cartão 1 (Tecnologia) - Caminho atualizado para a pasta assets/ -->
                 <article class="card" tabindex="0">
-                    <img src="drone.jpg.png" alt="Drone branco sobrevoando plantação verdejante em linha reta" class="imagem-cartao">
+                    <img src="assets/drone.jpg.png" alt="Drone branco de quatro hélices voando baixo e monitorando uma plantação de soja verdejante" class="imagem-cartao">
                     <h3>Tecnologia</h3>
                     <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
                 </article>
 
-                <!-- Cartão 2 (Preservação) -->
+                <!-- Cartão 2 (Preservação) - Caminho atualizado para a pasta assets/ -->
                 <article class="card" tabindex="0">
-                    <img src="planta.jpg" alt="Mãos humanas segurando terra preta com um broto verde crescendo centralizado" class="imagem-cartao">
+                    <img src="assets/planta.jpg" alt="Mãos humanas conchadas segurando terra escura com um broto verde crescendo no centro" class="imagem-cartao">
                     <h3>Preservação</h3>
                     <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
                 </article>
 
-                <!-- Cartão 3 (Produção) -->
+                <!-- Cartão 3 (Produção) - Caminho atualizado para a pasta assets/ -->
                 <article class="card" tabindex="0">
-                    <img src="trigo.jpg.png" alt="Plantação de trigo dourado sob o sol brilhante do final de tarde" class="imagem-cartao">
+                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado sob o sol brilhante de fim de tarde" class="imagem-cartao">
                     <h3>Produção</h3>
                     <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
                 </article>
@@ -65,16 +67,17 @@
             </div>
         </section>
 
-                <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
+        <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
         <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
             <h2 id="titulo-simulador">Diagnóstico de Sustentabilidade Agrícola</h2>
-            <p>Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
+            <p id="instrucao-quiz">Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
             
             <div class="quiz-container">
+                
                 <!-- Pergunta 1 -->
                 <div class="pergunta-bloco">
-                    <p class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</p>
-                    <select id="p1" class="select-quiz" required>
+                    <label for="p1" class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</label>
+                    <select id="p1" class="select-quiz" required aria-describedby="instrucao-quiz">
                         <option value="">-- Escolha uma opção --</option>
                         <option value="10">Plantio direto completo e rotação de culturas constante</option>
                         <option value="5">Aração tradicional combinada com cobertura de solo parcial</option>
@@ -84,8 +87,8 @@
 
                 <!-- Pergunta 2 -->
                 <div class="pergunta-bloco">
-                    <p class="pergunta-texto">2. Qual é a principal fonte de defensivos e insumos utilizada?</p>
-                    <select id="p2" class="select-quiz" required>
+                    <label for="p2" class="pergunta-texto">2. Qual é a principal fonte de defensivos e insumos utilizada?</label>
+                    <select id="p2" class="select-quiz" required aria-describedby="instrucao-quiz">
                         <option value="">-- Escolha uma opção --</option>
                         <option value="10">Uso prioritário de bioinsumos e manejo integrado de pragas (MIP)</option>
                         <option value="5">Uso moderado de químicos apenas quando surgem infestações</option>
@@ -95,8 +98,8 @@
 
                 <!-- Pergunta 3 -->
                 <div class="pergunta-bloco">
-                    <p class="pergunta-texto">3. Como funciona a gestão de recursos hídricos e tecnologia?</p>
-                    <select id="p3" class="select-quiz" required>
+                    <label for="p3" class="pergunta-texto">3. Como funciona a gestão de recursos hídricos e tecnologia?</label>
+                    <select id="p3" class="select-quiz" required aria-describedby="instrucao-quiz">
                         <option value="">-- Escolha uma opção --</option>
                         <option value="10">Irrigação de precisão por gotejamento controlada por sensores/IA</option>
                         <option value="5">Irrigação comum por aspersão sem monitoramento de umidade</option>
@@ -104,13 +107,14 @@
                     </select>
                 </div>
                 
-                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade">Calcular Nota Final</button>
+                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade com base nas respostas acima">Calcular Nota Final</button>
                 
-                <!-- Caixa de resultado que receberá o placar dinâmico -->
+                <!-- O atributo aria-live avisa o leitor de tela do deficiente assim que o cálculo sair -->
                 <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
 
+    </main>
 
     <!-- RODAPÉ -->
     <footer role="contentinfo">
