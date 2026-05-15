@@ -1,352 +1,105 @@
-# Agro Forte, Futuro Sustentável — Site Moderno
-
-## `index.html`
-
-```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Agro Forte, Futuro Sustentável</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- CONFIGURAÇÕES DO SITE (Invisível para o usuário) -->
+
+    <!-- Ativa o suporte para acentos (á, é, í, õ, ç) -->
+    <meta charset="UTF-8">
+
+    <!-- Configura o site para caber direitinho na tela do celular -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Texto que fica escrito lá em cima, na aba do navegador -->
+    <title>Agro Forte, Futuro Sustentável</title>
+
+    <!-- Vincula este arquivo ao style.css para ganhar cores e estilo -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- CONTEÚDO VISÍVEL (Tudo o que aparece na tela) -->
 
-  <aside class="sidebar">
-    <div class="logo">
-      <h2>🌱 Agro Forte</h2>
-    </div>
+    <!-- TOPO DO SITE: Funciona como a faixa superior da página -->
+    <header>
+        <!-- Logotipo do site -->
+        <div class="logo">AgroSustentável</div>
+        
+        <!-- Menu com os botões de navegação -->
+        <nav>
+            <a href="#inicio">Início</a>
+            <a href="#pilares">Pilares</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
 
-    <nav>
-      <ul>
-        <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
-        <li><a href="#sustentabilidade"><i class="fas fa-leaf"></i> Sustentabilidade</a></li>
-        <li><a href="#tecnologia"><i class="fas fa-tractor"></i> Tecnologia</a></li>
-        <li><a href="#galeria"><i class="fas fa-image"></i> Galeria</a></li>
-        <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
-      </ul>
-    </nav>
+    <!-- CORPO DO SITE: Guarda o conteúdo principal da página -->
+    <main>
+        
+        <!-- Bloco 1: Banner de abertura (A primeira coisa que o usuário vê) -->
+        <section id="inicio" class="hero">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
+            
+            <!-- Botão que ganha ação de clique através do script.js -->
+            <button id="btnSaibaMais">Saiba Mais</button>
+        </section>
 
-    <div class="social-links">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-facebook"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </aside>
+        <!-- Bloco 2: Seção de conteúdo explicativo -->
+        <section id="pilares" class="features">
+            <h2>Nossos Pilares</h2>
+            
+            <!-- Caixa grande que segura os três cartões menores lado a lado -->
+            <div class="cards-container">
+                
+               <!-- Cartão Lado a Lado - Item 1 (Tecnologia) -->
+<div class="card">
+    <img src="drone.jpg.png" alt="Drone voando sobre uma plantação verde" class="imagem-cartao">
+    <h3>Tecnologia</h3>
+    <p>Uso de drones e IA para otimizar recursos.</p>
+</div>
 
-  <main class="content">
+<!-- Cartão Lado a Lado - Item 2 (Preservação) -->
+<div class="card">
+    <img src="planta.jpg" alt="Mãos segurando terra com uma pequena planta brotando" class="imagem-cartao">
+    <h3>Preservação</h3>
+    <p>Técnicas de manejo que protegem o solo e a água.</p>
+</div>
 
-    <section id="home" class="hero">
-      <div class="hero-text">
-        <h1>Agro forte, futuro sustentável</h1>
-        <p>Equilíbrio entre produção, tecnologia e preservação ambiental.</p>
-        <a href="#sustentabilidade" class="btn">Explorar</a>
-      </div>
-    </section>
+<!-- Cartão Lado a Lado - Item 3 (Produção) -->
+<div class="card">
+    <img src="trigo.jpg.png" alt="Grande plantação de trigo dourado sob o sol" class="imagem-cartao">
+    <h3>Produção</h3>
+    <p>Alimento de qualidade com pegada de carbono reduzida.</p>
+</div>
 
-    <section id="sustentabilidade" class="section">
-      <h2>Sustentabilidade no Campo</h2>
-      <div class="cards">
-        <div class="card">
-          <i class="fas fa-seedling"></i>
-          <h3>Produção consciente</h3>
-          <p>Práticas agrícolas que preservam recursos naturais.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-water"></i>
-          <h3>Uso eficiente da água</h3>
-          <p>Irrigação inteligente e redução de desperdícios.</p>
-        </div>
-        <div class="card">
-          <i class="fas fa-recycle"></i>
-          <h3>Economia circular</h3>
-          <p>Reaproveitamento e redução de resíduos no agro.</p>
-        </div>
-      </div>
-    </section>
+            </div>
+        </section>
 
-    <section id="tecnologia" class="section dark">
-      <h2>Tecnologia no Agro</h2>
-      <p>Drones, automação, sensores e inteligência artificial revolucionando o campo.</p>
-    </section>
+    </main>
 
-    <section id="galeria" class="section">
-      <h2>Galeria</h2>
-      <div class="gallery">
-        <img src="images/drone.jpg" alt="Drone no campo">
-        <img src="images/planta.jpg" alt="Planta nas mãos">
-        <img src="images/trigo.jpg" alt="Plantação de trigo">
-      </div>
-    </section>
-
-    <section id="contato" class="section dark">
-      <h2>Contato</h2>
-      <form>
-        <input type="text" placeholder="Seu nome" required>
-        <input type="email" placeholder="Seu email" required>
-        <textarea placeholder="Sua mensagem"></textarea>
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
-
+        <!-- Seção Interativa: Simulador Sustentável -->
+        <section id="simulador" class="interactive-section">
+            <h2>Avalie sua Prática Agrícola</h2>
+            <p>Selecione a técnica mais utilizada na sua produção para medir o nível de sustentabilidade:</p>
+            
+            <div class="quiz-container">
+                <select id="opcaoQuiz">
+                    <option value="">-- Escolha uma opção --</option>
+                    <option value="positivo">Uso de bioinsumos, plantio direto e rotação de culturas</option>
+                    <option value="neutro">Uso moderado de químicos combinado com tecnologia de precisão</option>
+                    <option value="negativo">Uso intensivo de defensivos agrícolas tradicionais sem monitoramento</option>
+                </select>
+                
+                <button id="btnVerificar">Analisar Impacto</button>
+                <div id="resultadoQuiz" class="resultado-box"></div>
+            </div>
+        </section>
+    
+    <!-- RODAPÉ: A faixa final na base da página -->
     <footer>
-      <p>© 2026 Agro Forte | Futuro Sustentável</p>
+        <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
     </footer>
 
-  </main>
-
-  <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
-
-  <script src="script.js"></script>
+    <!-- Ativa o arquivo script.js para dar vida e movimentos ao site -->
+    <script src="script.js"></script>
 </body>
 </html>
-```
-
----
-
-## `style.css`
-
-```css
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-  display: flex;
-  background: #f4f7f1;
-  color: #333;
-}
-
-.sidebar {
-  width: 260px;
-  height: 100vh;
-  background: linear-gradient(180deg, #1f4d2e, #2f6b3d);
-  color: white;
-  position: fixed;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.logo h2 {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.sidebar ul {
-  list-style: none;
-}
-
-.sidebar ul li {
-  margin: 20px 0;
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: 0.3s;
-}
-
-.sidebar ul li a:hover {
-  color: #a8e063;
-}
-
-.social-links {
-  text-align: center;
-}
-
-.social-links a {
-  color: white;
-  margin: 0 10px;
-  font-size: 20px;
-}
-
-.content {
-  margin-left: 260px;
-  width: calc(100% - 260px);
-}
-
-.hero {
-  height: 100vh;
-  background: url('images/trigo.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-  padding: 20px;
-}
-
-.hero h1 {
-  font-size: 4rem;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 1.4rem;
-  margin-bottom: 25px;
-}
-
-.btn {
-  background: #a8e063;
-  color: #1f4d2e;
-  padding: 12px 28px;
-  text-decoration: none;
-  border-radius: 30px;
-  font-weight: bold;
-}
-
-.section {
-  padding: 80px 50px;
-}
-
-.section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #1f4d2e;
-}
-
-.dark {
-  background: #1f4d2e;
-  color: white;
-}
-
-.dark h2 {
-  color: #a8e063;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.card {
-  background: white;
-  padding: 30px;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  text-align: center;
-}
-
-.card i {
-  font-size: 40px;
-  color: #2f6b3d;
-  margin-bottom: 15px;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 15px;
-  object-fit: cover;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-width: 500px;
-}
-
-form input,
-form textarea {
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
-}
-
-form button {
-  padding: 15px;
-  border: none;
-  background: #a8e063;
-  color: #1f4d2e;
-  font-weight: bold;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-footer {
-  text-align: center;
-  padding: 25px;
-  background: #163522;
-  color: white;
-}
-
-#topBtn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #2f6b3d;
-  color: white;
-  border: none;
-  padding: 15px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: none;
-}
-
-@media(max-width: 900px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-  }
-
-  .content {
-    margin-left: 0;
-    width: 100%;
-  }
-
-  body {
-    flex-direction: column;
-  }
-}
-```
-
----
-
-## `script.js`
-
-```javascript
-const topBtn = document.getElementById('topBtn');
-
-window.onscroll = function () {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    topBtn.style.display = 'block';
-  } else {
-    topBtn.style.display = 'none';
-  }
-};
-
-topBtn.addEventListener('click', () => {
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-});
-
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    document.querySelector(this.getAttribute('href')).scrollIntoView({
-      behavior: 'smooth'
-    });
-  });
-});
-```
