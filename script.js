@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // =========================================================================
-    // LÓGICA 1: ROLAGEM SUAVE
+    // LÓGICA 1: ROLAGEM SUAVE (CORREÇÃO DE LINKS DO MENU)
     // =========================================================================
     const botaoSaibaMais = document.getElementById('btnSaibaMais');
     if (botaoSaibaMais) {
@@ -10,8 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Intercepta todos os cliques em links internos de navegação do menu para garantir rolagem fluida
+    const linksMenu = document.querySelectorAll('header nav a[href^="#"]');
+    linksMenu.forEach(link => {
+        link.addEventListener('click', (evento) => {
+            evento.preventDefault(); // Impede o salto seco padrão do navegador
+            const idAlvo = link.getAttribute('href').substring(1);
+            const elementoAlvo = document.getElementById(idAlvo);
+            
+            if (elementoAlvo) {
+                elementoAlvo.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+
     // =========================================================================
-    // LÓGICA 2: SIMULADOR INTERATIVO (MATEMÁTICA E MANIPULAÇÃO DO DOM)
+    // LÓGICA 2: SIMULADOR INTERATIVO (CÁLCULO E MANIPULAÇÃO DO DOM)
     // =========================================================================
     const botaoVerificar = document.getElementById('btnVerificar');
     const caixaResultado = document.getElementById('resultadoQuiz');
@@ -53,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // LÓGICA 3: CONTROLES DO MENU LATERAL RETRÁTIL (SIDEBAR + ACESSIBILIDADE ARIA)
+    // LÓGICA 3: CONTROLES DE ABERTURA E FECHAMENTO DO MENU LATERAL (SIDEBAR)
     // =========================================================================
     const btnAbrirSidebar = document.getElementById('btnAbrirMenuLateral');
     const btnFecharSidebar = document.getElementById('btnFecharMenuLateral');
@@ -62,22 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnAbrirSidebar && btnFecharSidebar && sidebar && overlay) {
         
-        // Função para abrir o painel lateral
         btnAbrirSidebar.addEventListener('click', () => {
             sidebar.classList.add('aberto');
             overlay.classList.add('visivel');
             btnAbrirSidebar.setAttribute('aria-expanded', 'true');
             sidebar.setAttribute('aria-hidden', 'false');
-            btnFecharSidebar.focus(); // Joga o foco do teclado no botão de fechar para acessibilidade
+            btnFecharSidebar.focus(); // Acessibilidade: direciona o foco para o botão fechar
         });
 
-        // Função para fechar o painel lateral
         const fecharMenu = () => {
             sidebar.classList.remove('aberto');
             overlay.classList.remove('visivel');
             btnAbrirSidebar.setAttribute('aria-expanded', 'false');
             sidebar.setAttribute('aria-hidden', 'true');
-            btnAbrirSidebar.focus(); // Retorna o foco ao botão de abertura original
+            btnAbrirSidebar.focus(); // Acessibilidade: retorna o foco ao botão de abertura
         };
 
         btnFecharSidebar.addEventListener('click', fecharMenu);
@@ -85,7 +97,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // LÓGICA 4: FERRAMENTAS DE ACESSIBILIDADE (ZOOM & CONTRASTE)
+    // LÓGICA 4: TRANSIÇÃO DOS SLIDES DA GALERIA (MENU LATERAL)
+    // =========================================================================
+    const slides = document.querySelectorAll('.galeria-slide');
+    const btnAnterior = document.getElementById('btnSlideAnterior');
+    const btnProximo = document.getElementById('btnSlideProximo');
+    let indiceSlideAtual = 0;
+
+    function atualizarExibicaoSlides(novoIndice) {
+        // Remove a classe ativa do slide que estava aparecendo
+        slides[indiceSlideAtual].classList.remove('ativo');
+        
+        // Atualiza o índice garantindo um loop infinito circular
+        if (novoIndice >= slides.length) {
+            indiceSlideAtual = 0;
+        } else if (novoIndice < 0) {
+            indiceSlideAtual = slides.length - 1;
+        } else {
+            indiceSlideAtual = novoIndice;
+        }
+        
+        // Adiciona a classe ativa no novo slide correspondente
+        slides[indiceSlideAtual].classList.add('ativo');
+    }
+
+    if (btnAnterior && btnProximo && slides.length > 0) {
+        // Clique na seta para avançar imagem
+        btnProximo.addEventListener('click', () => {
+            atualizarExibicaoSlides(indiceSlideAtual + 1);
+        });
+
+        // Clique na seta para voltar imagem
+        btnAnterior.addEventListener('click', () => {
+            atualizarExibicaoSlides(indiceSlideAtual - 1);
+        });
+    }
+
+    // =========================================================================
+    // LÓGICA 5: FERRAMENTAS DE ACESSIBILIDADE (ZOOM DE FONTE & ALTO CONTRASTE)
     // =========================================================================
     const btnContraste = document.getElementById('btnContraste');
     const btnAumentarTexto = document.getElementById('btnAumentarTexto');
