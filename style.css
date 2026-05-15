@@ -158,3 +158,60 @@ footer {
     border-radius: 4px;
     margin-bottom: 15px;
 }
+
+/* Estilo do Painel Interativo */
+.interactive-section {
+    background-color: #e8f5e9; /* Fundo verde bem clarinho para dar destaque */
+    padding: 60px 10%;
+    text-align: center;
+}
+
+.interactive-section h2 {
+    color: #1b4332;
+    margin-bottom: 15px;
+}
+
+.quiz-container {
+    max-width: 500px;
+    margin: 20px auto 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.quiz-container select {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 2px solid #52b788;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.quiz-container button {
+    background-color: #1b4332;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    transition: background 0.3s;
+}
+
+.quiz-container button:hover {
+    background-color: #2d6a4f;
+}
+
+/* Caixa onde a mensagem do resultado aparece */
+.resultado-box {
+    margin-top: 20px;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    display: none; /* Começa escondida e só aparece no clique */
+}
