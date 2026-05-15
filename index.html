@@ -13,7 +13,7 @@
 
     <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
     <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
-        <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
+        <button id="btnContraste" aria-label="Ativar Alto Contraste">🌓 Alternar Contraste</button>
         <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar Letra</button>
         <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir Letra</button>
     </div>
@@ -22,101 +22,95 @@
     <header role="banner">
         <div class="logo" id="logoSite">AgroSustentável</div>
         <nav role="navigation" aria-label="Menu Principal">
-            <a href="#inicio">Início</a>
-            <!-- Link ajustado e configurado para a rolagem via JS -->
-            <button id="btnNavPilares" class="btn-nav-link" aria-label="Navegar até os pilares do agro">Pilares</button>
-            <button id="btnNavSimulador" class="btn-nav-link" aria-label="Navegar até o simulador de sustentabilidade">Simulador</button>
-            <button id="btnAbrirMenuLateral" class="btn-sidebar-toggle" aria-label="Abrir menu de inovações e fotos extras" aria-expanded="false" aria-controls="menuLateral">
-                📂 Inovações no Campo
+            <a href="#inicio" class="link-navegacao">Início</a>
+            <a href="#pilares" class="link-navegacao">Pilares</a>
+            <a href="#simulador" class="link-navegacao">Simulador</a>
+            <button id="btnAbrirMenuLateral" class="btn-sidebar-toggle" aria-label="Abrir galeria de fotos" aria-expanded="false" aria-controls="menuLateral">
+                📸 Inovações no Campo
             </button>
         </nav>
     </header>
 
-    <!-- MENU LATERAL RETRÁTIL (SIDEBAR) COM CARROSSEL DE IMAGENS -->
-    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Painel de Inovações Tecnológicas">
+    <!-- MENU LATERAL RETRÁTIL (SIDEBAR PROFISSIONAL) -->
+    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Painel de Informações e Fotos">
         <div class="sidebar-header">
-            <h2>Inovações no Campo</h2>
-            <button id="btnFecharMenuLateral" aria-label="Fechar menu de informações">✖</button>
+            <h2>Galeria & Inovações</h2>
+            <button id="btnFecharMenuLateral" aria-label="Fechar menu lateral">✖</button>
         </div>
         <div class="sidebar-conteudo">
-            <p class="sidebar-subtitulo">Tecnologias de Monitoramento</p>
-            <p>O acompanhamento em tempo real por imagens térmicas e sensores integrados minimiza as perdas de água, otimiza fertilizantes e eleva o rendimento biológico da safra.</p>
+            <p class="sidebar-subtitulo">Tecnologia Aplicada</p>
+            <p class="sidebar-texto">O monitoramento automatizado e a análise em tempo real evitam desperdícios drásticos de insumos no bioma.</p>
             
-            <p class="sidebar-subtitulo">Galeria Interativa</p>
-            
-            <!-- CARROSSEL MODERNO COM SETAS DE NAVEGAÇÃO -->
+            <!-- CARROSSEL MODERNO DESLIZANTE -->
             <div class="carrossel-container">
-                <div class="carrossel-slides">
-                    <!-- Slide 1 -->
-                    <div class="slide-item ativo">
-                        <img src="assets/drone.jpg.png" alt="Visão detalhada de um drone de monitoramento voando em campo tecnológico">
-                        <span class="slide-legenda">Tecnologia Aplicada</span>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="slide-item">
-                        <img src="assets/planta.jpg" alt="Solo fértil protegido recebendo nutrientes biológicos ecológicos">
-                        <span class="slide-legenda">Manejo Regenerativo</span>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="slide-item">
-                        <img src="assets/trigo.jpg.png" alt="Plantação robusta de grãos dourados de trigo prontos para a colheita limpa">
-                        <span class="slide-legenda">Produção Carbono Zero</span>
+                <div class="carrossel-wrapper">
+                    <div id="carrosselTrilho" class="carrossel-trilho">
+                        <div class="carrossel-slide">
+                            <img src="assets/drone.jpg.png" alt="Drone operando na lavoura">
+                            <div class="slide-legenda">Monitoramento por Drone</div>
+                        </div>
+                        <div class="carrossel-slide">
+                            <img src="assets/planta.jpg" alt="Manejo sustentável de solo">
+                            <div class="slide-legenda">Proteção do Solo</div>
+                        </div>
+                        <div class="carrossel-slide">
+                            <img src="assets/trigo.jpg.png" alt="Colheita de trigo dourado">
+                            <div class="slide-legenda">Alta Produtividade</div>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Botões de navegação do Slider -->
-                <button id="btnAnteriorSlide" class="seta-carrossel seta-esquerda" aria-label="Imagem anterior">◀</button>
-                <button id="btnProximoSlide" class="seta-carrossel seta-direita" aria-label="Próxima imagem">▶</button>
+                <!-- CONTROLES FLUTUANTES DO CARROSSEL -->
+                <button class="carrossel-btn btn-esq" id="btnSlideAnterior" aria-label="Foto anterior">❮</button>
+                <button class="carrossel-btn btn-dir" id="btnSlideProximo" aria-label="Próxima foto">❯</button>
             </div>
         </div>
     </aside>
 
-    <!-- Camada de sombreamento do fundo ao abrir o menu -->
+    <!-- Fundo escuro ao abrir o menu lateral -->
     <div id="overlaySidebar" class="sidebar-overlay"></div>
 
     <!-- CORPO DO SITE -->
     <main id="conteudo-principal" role="main">
         
-        <!-- Bloco 1: Banner de abertura -->
+        <!-- Bloco 1: Banner Hero -->
         <section id="inicio" class="hero" aria-labelledby="titulo-principal">
             <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
             <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
             <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Saiba Mais</button>
         </section>
 
-        <!-- Bloco 2: Seção de conteúdo explicativo (Garantido ID correto de âncora) -->
+        <!-- Bloco 2: Seção de Pilares -->
         <section id="pilares" class="features" aria-labelledby="titulo-pilares">
             <h2 id="titulo-pilares">Nossos Pilares</h2>
             <div class="cards-container">
                 
                 <article class="card" tabindex="0">
-                    <img src="assets/drone.jpg.png" alt="Drone branco de quatro hélices voando baixo e monitorando uma plantação de soja verdejante" class="imagem-cartao">
+                    <img src="assets/drone.jpg.png" alt="Drone branco monitorando plantação de soja" class="imagem-cartao">
                     <h3>Tecnologia</h3>
                     <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
                 </article>
 
                 <article class="card" tabindex="0">
-                    <img src="assets/planta.jpg" alt="Mãos humanas conchadas segurando terra escura com um broto verde crescendo no centro" class="imagem-cartao">
+                    <img src="assets/planta.jpg" alt="Mãos segurando terra com pequeno broto crescendo" class="imagem-cartao">
                     <h3>Preservação</h3>
                     <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
                 </article>
 
                 <article class="card" tabindex="0">
-                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado sob o sol brilhante de fim de tarde" class="imagem-cartao">
+                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado" class="imagem-cartao">
                     <h3>Produção</h3>
-                    <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
+                    <p>Alimento de alta qualidade gerado com pegada de carbono reduzida.</p>
                 </article>
 
             </div>
         </section>
 
-        <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
+        <!-- Bloco 3: Diagnóstico Interativo -->
         <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
             <h2 id="titulo-simulador">Diagnóstico de Sustentabilidade Agrícola</h2>
             <p id="instrucao-quiz">Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
             
             <div class="quiz-container">
-                
                 <div class="pergunta-bloco">
                     <label for="p1" class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</label>
                     <select id="p1" class="select-quiz" required aria-describedby="instrucao-quiz">
@@ -147,8 +141,7 @@
                     </select>
                 </div>
                 
-                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade com base nas respostas acima">Calcular Nota Final</button>
-                
+                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade">Calcular Nota Final</button>
                 <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
