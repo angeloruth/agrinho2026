@@ -1,184 +1,352 @@
+# Agro Forte, Futuro Sustentável — Site Moderno
+
+## `index.html`
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agro Forte, Futuro Sustentável</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <!-- LINK DE ACESSIBILIDADE OCULTO (WCAG) -->
-    <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo principal</a>
-
-    <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
-    <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
-        <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
-        <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar Letra</button>
-        <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir Letra</button>
+  <aside class="sidebar">
+    <div class="logo">
+      <h2>🌱 Agro Forte</h2>
     </div>
 
-    <!-- TOPO DO SITE -->
-    <header role="banner">
-        <div class="logo" id="logoSite">AgroSustentável</div>
-        <nav role="navigation" aria-label="Menu Principal">
-            <a href="#inicio">Início</a>
-            <a href="#pilares">Pilares</a>
-            <a href="#simulador">Simulador</a>
-            <!-- Botão Moderno com efeito de pulso para abrir o Menu de Conhecimento -->
-            <button id="btnAbrirMenuLateral" class="btn-sidebar-toggle" aria-label="Abrir menu de tópicos e artigos" aria-expanded="false" aria-controls="menuLateral">
-                📚 Conhecimento
-            </button>
-        </nav>
-    </header>
+    <nav>
+      <ul>
+        <li><a href="#home"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="#sustentabilidade"><i class="fas fa-leaf"></i> Sustentabilidade</a></li>
+        <li><a href="#tecnologia"><i class="fas fa-tractor"></i> Tecnologia</a></li>
+        <li><a href="#galeria"><i class="fas fa-image"></i> Galeria</a></li>
+        <li><a href="#contato"><i class="fas fa-envelope"></i> Contato</a></li>
+      </ul>
+    </nav>
 
-    <!-- MENU LATERAL RETRÁTIL (Navegação para páginas externas) -->
-    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Menu de Artigos e Esclarecimentos">
-        <div class="sidebar-header">
-            <h2>Artigos & Esclarecimentos</h2>
-            <button id="btnFecharMenuLateral" aria-label="Fechar menu lateral">✖</button>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </aside>
+
+  <main class="content">
+
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Agro forte, futuro sustentável</h1>
+        <p>Equilíbrio entre produção, tecnologia e preservação ambiental.</p>
+        <a href="#sustentabilidade" class="btn">Explorar</a>
+      </div>
+    </section>
+
+    <section id="sustentabilidade" class="section">
+      <h2>Sustentabilidade no Campo</h2>
+      <div class="cards">
+        <div class="card">
+          <i class="fas fa-seedling"></i>
+          <h3>Produção consciente</h3>
+          <p>Práticas agrícolas que preservam recursos naturais.</p>
         </div>
-        <nav class="sidebar-conteudo" aria-label="Links de Conhecimento do Agro">
-            <p class="sidebar-instrucao">Clique em um dos tópicos abaixo para acessar nosso portal completo de esclarecimentos:</p>
-            
-            <ul class="sidebar-lista-links">
-                <li>
-                    <a href="tecnologia.html" class="sidebar-link-item">
-                        <span class="link-icone">🤖</span>
-                        <div class="link-textos">
-                            <h3>1. Agricultura de Precisão</h3>
-                            <p>Uso prático de drones, sensores IoT e Inteligência Artificial no campo.</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="solo.html" class="sidebar-link-item">
-                        <span class="link-icone">🌱</span>
-                        <div class="link-textos">
-                            <h3>2. Manejo Regenerativo do Solo</h3>
-                            <p>Técnicas de plantio direto e rotação de culturas para proteção da terra.</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="agua.html" class="sidebar-link-item">
-                        <span class="link-icone">💧</span>
-                        <div class="link-textos">
-                            <h3>3. Gestão Hídrica Inteligente</h3>
-                            <p>Sistemas modernos de irrigação automatizada por gotejamento.</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="carbono.html" class="sidebar-link-item">
-                        <span class="link-icone">☁️</span>
-                        <div class="link-textos">
-                            <h3>4. Neutralização de Carbono</h3>
-                            <p>Como o agronegócio moderno está reduzindo e retendo gases estufa.</p>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="biodiversidade.html" class="sidebar-link-item">
-                        <span class="link-icone">🐝</span>
-                        <div class="link-textos">
-                            <h3>5. Preservação da Biodiversidade</h3>
-                            <p>O papel dos polinizadores e das matas ciliares na produtividade.</p>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+        <div class="card">
+          <i class="fas fa-water"></i>
+          <h3>Uso eficiente da água</h3>
+          <p>Irrigação inteligente e redução de desperdícios.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-recycle"></i>
+          <h3>Economia circular</h3>
+          <p>Reaproveitamento e redução de resíduos no agro.</p>
+        </div>
+      </div>
+    </section>
 
-    <!-- Camada escura de fundo (Overlay) -->
-    <div id="overlaySidebar" class="sidebar-overlay"></div>
+    <section id="tecnologia" class="section dark">
+      <h2>Tecnologia no Agro</h2>
+      <p>Drones, automação, sensores e inteligência artificial revolucionando o campo.</p>
+    </section>
 
-    <!-- CORPO DO SITE -->
-    <main id="conteudo-principal" role="main">
-        
-        <!-- Bloco 1: Banner de abertura (Hero) -->
-        <section id="inicio" class="hero" aria-labelledby="titulo-principal">
-            <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
-            <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
-            <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Saiba Mais</button>
-        </section>
+    <section id="galeria" class="section">
+      <h2>Galeria</h2>
+      <div class="gallery">
+        <img src="images/drone.jpg" alt="Drone no campo">
+        <img src="images/planta.jpg" alt="Planta nas mãos">
+        <img src="images/trigo.jpg" alt="Plantação de trigo">
+      </div>
+    </section>
 
-        <!-- Bloco 2: Seção de conteúdo explicativo -->
-        <section id="pilares" class="features" aria-labelledby="titulo-pilares">
-            <h2>Nossos Pilares</h2>
-            <div class="cards-container">
-                
-                <article class="card" tabindex="0">
-                    <img src="assets/drone.jpg.png" alt="Drone voando sobre uma plantação verdejante" class="imagem-cartao">
-                    <h3>Tecnologia</h3>
-                    <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
-                </article>
+    <section id="contato" class="section dark">
+      <h2>Contato</h2>
+      <form>
+        <input type="text" placeholder="Seu nome" required>
+        <input type="email" placeholder="Seu email" required>
+        <textarea placeholder="Sua mensagem"></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
 
-                <article class="card" tabindex="0">
-                    <img src="assets/planta.jpg" alt="Mãos segurando terra com um pequeno broto crescendo" class="imagem-cartao">
-                    <h3>Preservação</h3>
-                    <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
-                </article>
-
-                <article class="card" tabindex="0">
-                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado sob o sol" class="imagem-cartao">
-                    <h3>Produção</h3>
-                    <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
-                </article>
-
-            </div>
-        </section>
-
-        <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
-        <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
-            <h2>Diagnóstico de Sustentabilidade Agrícola</h2>
-            <p id="instrucao-quiz">Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
-            
-            <div class="quiz-container">
-                
-                <div class="pergunta-bloco">
-                    <label for="p1" class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</label>
-                    <select id="p1" class="select-quiz" required aria-describedby="instrucao-quiz">
-                        <option value="">-- Escolha uma opção --</option>
-                        <option value="10">Plantio direto completo e rotação de culturas constante</option>
-                        <option value="5">Aração tradicional combinada com cobertura de solo parcial</option>
-                        <option value="0">Reviramento intensivo do solo sem períodos de descanso</option>
-                    </select>
-                </div>
-
-                <div class="pergunta-bloco">
-                    <label for="p2" class="pergunta-texto">2. Qual é a principal fonte de defensivos e insumos utilizada?</label>
-                    <select id="p2" class="select-quiz" required aria-describedby="instrucao-quiz">
-                        <option value="">-- Escolha uma opção --</option>
-                        <option value="10">Uso prioritário de bioinsumos e manejo integrado de pragas (MIP)</option>
-                        <option value="5">Uso moderado de químicos apenas quando surgem infestações</option>
-                        <option value="0">Aplicação pesada e calendarizada de químicos tradicionais</option>
-                    </select>
-                </div>
-
-                <div class="pergunta-bloco">
-                    <label for="p3" class="pergunta-texto">3. Como funciona a gestão de recursos hídricos e tecnologia?</label>
-                    <select id="p3" class="select-quiz" required aria-describedby="instrucao-quiz">
-                        <option value="">-- Escolha uma opção --</option>
-                        <option value="10">Irrigação de precisão por gotejamento controlada por sensores/IA</option>
-                        <option value="5">Irrigação comum por aspersão sem monitoramento de umidade</option>
-                        <option value="0">Uso de água em abundância por inundação ou sem controle de vazão</option>
-                    </select>
-                </div>
-                
-                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade">Calcular Nota Final</button>
-                
-                <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer role="contentinfo">
-        <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
+    <footer>
+      <p>© 2026 Agro Forte | Futuro Sustentável</p>
     </footer>
 
-    <script src="script.js"></script>
+  </main>
+
+  <button id="topBtn"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
 </body>
 </html>
+```
+
+---
+
+## `style.css`
+
+```css
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  display: flex;
+  background: #f4f7f1;
+  color: #333;
+}
+
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1f4d2e, #2f6b3d);
+  color: white;
+  position: fixed;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #a8e063;
+}
+
+.social-links {
+  text-align: center;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+.content {
+  margin-left: 260px;
+  width: calc(100% - 260px);
+}
+
+.hero {
+  height: 100vh;
+  background: url('images/trigo.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  margin-bottom: 25px;
+}
+
+.btn {
+  background: #a8e063;
+  color: #1f4d2e;
+  padding: 12px 28px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.section {
+  padding: 80px 50px;
+}
+
+.section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: #1f4d2e;
+}
+
+.dark {
+  background: #1f4d2e;
+  color: white;
+}
+
+.dark h2 {
+  color: #a8e063;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.card i {
+  font-size: 40px;
+  color: #2f6b3d;
+  margin-bottom: 15px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px;
+}
+
+form input,
+form textarea {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+}
+
+form button {
+  padding: 15px;
+  border: none;
+  background: #a8e063;
+  color: #1f4d2e;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #163522;
+  color: white;
+}
+
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2f6b3d;
+  color: white;
+  border: none;
+  padding: 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+@media(max-width: 900px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  body {
+    flex-direction: column;
+  }
+}
+```
+
+---
+
+## `script.js`
+
+```javascript
+const topBtn = document.getElementById('topBtn');
+
+window.onscroll = function () {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    topBtn.style.display = 'block';
+  } else {
+    topBtn.style.display = 'none';
+  }
+};
+
+topBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+```
