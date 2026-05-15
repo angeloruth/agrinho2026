@@ -65,28 +65,52 @@
             </div>
         </section>
 
-        <!-- Seção Interativa: Simulador Sustentável -->
+                <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
         <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
-            <h2 id="titulo-simulador">Avalie sua Prática Agrícola</h2>
-            <p>Selecione a técnica mais utilizada na sua produção para medir o nível de sustentabilidade:</p>
+            <h2 id="titulo-simulador">Diagnóstico de Sustentabilidade Agrícola</h2>
+            <p>Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
             
             <div class="quiz-container">
-                <label for="opcaoQuiz" class="sr-only">Selecione uma prática agrícola da lista:</label>
-                <select id="opcaoQuiz">
-                    <option value="">-- Escolha uma opção --</option>
-                    <option value="positivo">Uso de bioinsumos, plantio direto e rotação de culturas</option>
-                    <option value="neutro">Uso moderado de químicos combinado com tecnologia de precisão</option>
-                    <option value="negativo">Uso intensivo de defensivos agrícolas tradicionais sem monitoramento</option>
-                </select>
+                <!-- Pergunta 1 -->
+                <div class="pergunta-bloco">
+                    <p class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</p>
+                    <select id="p1" class="select-quiz" required>
+                        <option value="">-- Escolha uma opção --</option>
+                        <option value="10">Plantio direto completo e rotação de culturas constante</option>
+                        <option value="5">Aração tradicional combinada com cobertura de solo parcial</option>
+                        <option value="0">Reviramento intensivo do solo sem períodos de descanso</option>
+                    </select>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div class="pergunta-bloco">
+                    <p class="pergunta-texto">2. Qual é a principal fonte de defensivos e insumos utilizada?</p>
+                    <select id="p2" class="select-quiz" required>
+                        <option value="">-- Escolha uma opção --</option>
+                        <option value="10">Uso prioritário de bioinsumos e manejo integrado de pragas (MIP)</option>
+                        <option value="5">Uso moderado de químicos apenas quando surgem infestações</option>
+                        <option value="0">Aplicação pesada e calendarizada de químicos tradicionais</option>
+                    </select>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="pergunta-bloco">
+                    <p class="pergunta-texto">3. Como funciona a gestão de recursos hídricos e tecnologia?</p>
+                    <select id="p3" class="select-quiz" required>
+                        <option value="">-- Escolha uma opção --</option>
+                        <option value="10">Irrigação de precisão por gotejamento controlada por sensores/IA</option>
+                        <option value="5">Irrigação comum por aspersão sem monitoramento de umidade</option>
+                        <option value="0">Uso de água em abundância por inundação ou sem controle de vazão</option>
+                    </select>
+                </div>
                 
-                <button id="btnVerificar" aria-label="Analisar impacto ambiental da opção selecionada">Analisar Impacto</button>
+                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade">Calcular Nota Final</button>
                 
-                <!-- aria-live avisa o leitor de tela do cego assim que o texto mudar por causa do clique -->
+                <!-- Caixa de resultado que receberá o placar dinâmico -->
                 <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
 
-    </main>
 
     <!-- RODAPÉ -->
     <footer role="contentinfo">
