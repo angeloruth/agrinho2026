@@ -8,134 +8,115 @@
 </head>
 <body>
 
+    <!-- LINK DE ACESSIBILIDADE OCULTO (WCAG) -->
     <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo principal</a>
 
     <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
     <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
-        <button id="btnContraste" aria-label="Ativar Alto Contraste">🌓 Alternar Contraste</button>
-        <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar</button>
-        <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir</button>
+        <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
+        <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar Letra</button>
+        <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir Letra</button>
     </div>
 
-    <!-- TOPO DO SITE COM BOTÃO DO MENU LATERAL -->
+    <!-- TOPO DO SITE -->
     <header role="banner">
-        <div class="header-esquerda">
-            <button id="btnAbrirMenu" class="btn-menu-hamburguer" aria-label="Abrir menu lateral de informações">☰</button>
-            <div class="logo" id="logoSite">AgroSustentável</div>
-        </div>
+        <div class="logo" id="logoSite">AgroSustentável</div>
         <nav role="navigation" aria-label="Menu Principal">
             <a href="#inicio">Início</a>
-            <a href="#pilares">Pilares</a>
-            <a href="#galeria">Galeria</a>
-            <a href="#simulador">Simulador</a>
+            <!-- Link ajustado e configurado para a rolagem via JS -->
+            <button id="btnNavPilares" class="btn-nav-link" aria-label="Navegar até os pilares do agro">Pilares</button>
+            <button id="btnNavSimulador" class="btn-nav-link" aria-label="Navegar até o simulador de sustentabilidade">Simulador</button>
+            <button id="btnAbrirMenuLateral" class="btn-sidebar-toggle" aria-label="Abrir menu de inovações e fotos extras" aria-expanded="false" aria-controls="menuLateral">
+                📂 Inovações no Campo
+            </button>
         </nav>
     </header>
 
-    <!-- MENU LATERAL RETRÁTIL (SIDEBAR) -->
-    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Painel de Informações Adicionais">
+    <!-- MENU LATERAL RETRÁTIL (SIDEBAR) COM CARROSSEL DE IMAGENS -->
+    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Painel de Inovações Tecnológicas">
         <div class="sidebar-header">
-            <h3>Central de Informações</h3>
-            <button id="btnFecharMenu" aria-label="Fechar menu lateral">✕</button>
+            <h2>Inovações no Campo</h2>
+            <button id="btnFecharMenuLateral" aria-label="Fechar menu de informações">✖</button>
         </div>
         <div class="sidebar-conteudo">
-            <p class="sidebar-intro">Explore conteúdos profundos sobre o ecossistema do agro do futuro:</p>
+            <p class="sidebar-subtitulo">Tecnologias de Monitoramento</p>
+            <p>O acompanhamento em tempo real por imagens térmicas e sensores integrados minimiza as perdas de água, otimiza fertilizantes e eleva o rendimento biológico da safra.</p>
             
-            <div class="info-card-lateral">
-                <h4>📊 Pegada de Carbono</h4>
-                <p>A agricultura de precisão pode reduzir em até 40% a emissão de gases estufa através do manejo inteligente do solo.</p>
-            </div>
+            <p class="sidebar-subtitulo">Galeria Interativa</p>
             
-            <div class="info-card-lateral">
-                <h4>💧 Gestão Hídrica</h4>
-                <p>Sensores subterrâneos de umidade evitam o desperdício, liberando água apenas quando as raízes necessitam.</p>
-            </div>
-
-            <div class="info-card-lateral">
-                <h4>🐝 Biodiversidade</h4>
-                <p>Corredores ecológicos conectam fragmentos florestais, protegendo polinizadores essenciais para as culturas.</p>
+            <!-- CARROSSEL MODERNO COM SETAS DE NAVEGAÇÃO -->
+            <div class="carrossel-container">
+                <div class="carrossel-slides">
+                    <!-- Slide 1 -->
+                    <div class="slide-item ativo">
+                        <img src="assets/drone.jpg.png" alt="Visão detalhada de um drone de monitoramento voando em campo tecnológico">
+                        <span class="slide-legenda">Tecnologia Aplicada</span>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide-item">
+                        <img src="assets/planta.jpg" alt="Solo fértil protegido recebendo nutrientes biológicos ecológicos">
+                        <span class="slide-legenda">Manejo Regenerativo</span>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide-item">
+                        <img src="assets/trigo.jpg.png" alt="Plantação robusta de grãos dourados de trigo prontos para a colheita limpa">
+                        <span class="slide-legenda">Produção Carbono Zero</span>
+                    </div>
+                </div>
+                
+                <!-- Botões de navegação do Slider -->
+                <button id="btnAnteriorSlide" class="seta-carrossel seta-esquerda" aria-label="Imagem anterior">◀</button>
+                <button id="btnProximoSlide" class="seta-carrossel seta-direita" aria-label="Próxima imagem">▶</button>
             </div>
         </div>
     </aside>
 
+    <!-- Camada de sombreamento do fundo ao abrir o menu -->
+    <div id="overlaySidebar" class="sidebar-overlay"></div>
+
+    <!-- CORPO DO SITE -->
     <main id="conteudo-principal" role="main">
         
-        <!-- Bloco 1: Banner Hero Moderno -->
+        <!-- Bloco 1: Banner de abertura -->
         <section id="inicio" class="hero" aria-labelledby="titulo-principal">
-            <div class="hero-glass-card">
-                <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
-                <p>O equilíbrio perfeito entre a alta produtividade tecnológica e a preservação ambiental rigorosa.</p>
-                <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Explorar Pilares</button>
-            </div>
+            <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
+            <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
+            <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Saiba Mais</button>
         </section>
 
-        <!-- Bloco 2: Nossos Pilares -->
+        <!-- Bloco 2: Seção de conteúdo explicativo (Garantido ID correto de âncora) -->
         <section id="pilares" class="features" aria-labelledby="titulo-pilares">
             <h2 id="titulo-pilares">Nossos Pilares</h2>
             <div class="cards-container">
+                
                 <article class="card" tabindex="0">
-                    <img src="assets/drone.jpg.png" alt="Drone de monitoramento agrícola" class="imagem-cartao">
+                    <img src="assets/drone.jpg.png" alt="Drone branco de quatro hélices voando baixo e monitorando uma plantação de soja verdejante" class="imagem-cartao">
                     <h3>Tecnologia</h3>
-                    <p>Inteligência artificial espacial e drones automatizados mapeando a saúde da lavoura em tempo real.</p>
+                    <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
                 </article>
 
                 <article class="card" tabindex="0">
-                    <img src="assets/planta.jpg" alt="Mãos segurando solo fértil" class="imagem-cartao">
+                    <img src="assets/planta.jpg" alt="Mãos humanas conchadas segurando terra escura com um broto verde crescendo no centro" class="imagem-cartao">
                     <h3>Preservação</h3>
-                    <p>Sistemas integrados de plantio direto que regeneram microrganismos e fixam nitrogênio no solo.</p>
+                    <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
                 </article>
 
                 <article class="card" tabindex="0">
-                    <img src="assets/trigo.jpg.png" alt="Plantação de trigo dourado" class="imagem-cartao">
+                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado sob o sol brilhante de fim de tarde" class="imagem-cartao">
                     <h3>Produção</h3>
-                    <p>Maximização do rendimento por hectare reduzindo a necessidade de abertura de novas áreas nativas.</p>
+                    <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
                 </article>
+
             </div>
         </section>
 
-        <!-- NOVO BLOCO: GALERIA INTERATIVA / CARROSSEL -->
-        <section id="galeria" class="galeria-section" aria-labelledby="titulo-galeria">
-            <h2 id="titulo-galeria">Inovações Visuais do Campo</h2>
-            <p class="subtitulo-secao">Use os botões para navegar pelas tecnologias sustentáveis:</p>
-            
-            <div class="carrossel-container">
-                <div class="carrossel-slides">
-                    <!-- Slide 1 -->
-                    <div class="slide ativo">
-                        <img src="assets/drone.jpg.png" alt="Drone fazendo pulverização direcionada">
-                        <div class="slide-legenda">
-                            <h4>Monitoramento Aéreo</h4>
-                            <p>Drones reduzem o uso de defensivos aplicando-os somente nos focos exatos das pragas.</p>
-                        </div>
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="slide">
-                        <img src="assets/planta.jpg" alt="Cultivos hidropônicos sustentáveis">
-                        <div class="slide-legenda">
-                            <h4>Sistemas Regenerativos</h4>
-                            <p>Raízes fortes em solos ricos capturam mais carbono da atmosfera planetária.</p>
-                        </div>
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="slide">
-                        <img src="assets/trigo.jpg.png" alt="Colheitadeira computadorizada de alta precisão">
-                        <div class="slide-legenda">
-                            <h4>Colheita Tecnológica</h4>
-                            <p>Máquinas conectadas geram mapas de produtividade metro a metro.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Botões de controle do carrossel -->
-                <button class="btn-carrossel anterior" id="btnAnteriorSlide" aria-label="Foto anterior">❮</button>
-                <button class="btn-carrossel proximo" id="btnProximoSlide" aria-label="Próxima foto">❯</button>
-            </div>
-        </section>
-
-        <!-- Seção Interativa: Diagnóstico -->
+        <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
         <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
             <h2 id="titulo-simulador">Diagnóstico de Sustentabilidade Agrícola</h2>
-            <p id="instrucao-quiz">Responda às perguntas abaixo para calcular a eficiência ecológica da sua produção:</p>
+            <p id="instrucao-quiz">Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
             
             <div class="quiz-container">
+                
                 <div class="pergunta-bloco">
                     <label for="p1" class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</label>
                     <select id="p1" class="select-quiz" required aria-describedby="instrucao-quiz">
@@ -166,13 +147,15 @@
                     </select>
                 </div>
                 
-                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade">Calcular Nota Final</button>
+                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade com base nas respostas acima">Calcular Nota Final</button>
+                
                 <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
 
     </main>
 
+    <!-- RODAPÉ -->
     <footer role="contentinfo">
         <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
     </footer>
@@ -180,4 +163,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
