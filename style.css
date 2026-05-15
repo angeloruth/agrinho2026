@@ -150,3 +150,11 @@ footer {
     border-radius: 4px;      /* Deixa as bordinhas da foto levemente arredondadas */
     margin-bottom: 20px;     /* Empurra o título do cartão para baixo, criando um respiro */
 }
+
+.imagem-cartao {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
