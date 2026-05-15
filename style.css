@@ -139,3 +139,14 @@ footer {
     padding: 20px;             /* Espaço interno para dar altura ao rodapé */
     margin-top: 40px;          /* Empurra o rodapé para longe do bloco de cima */
 }
+
+/* ========================================== */
+/* NOVO CÓDIGO: CONFIGURAÇÃO DAS FOTOS DOS CARTÕES */
+/* ========================================== */
+.imagem-cartao {
+    width: 100%;             /* Faz a foto ocupar 100% do espaço horizontal do cartão */
+    height: 180px;           /* Trava a altura para que todas as fotos fiquem do mesmo tamanho */
+    object-fit: cover;       /* Ajusta e corta a foto de forma inteligente para não distorcer */
+    border-radius: 4px;      /* Deixa as bordinhas da foto levemente arredondadas */
+    margin-bottom: 20px;     /* Empurra o título do cartão para baixo, criando um respiro */
+}
