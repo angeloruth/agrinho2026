@@ -1,105 +1,126 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- CONFIGURAÇÕES DO SITE (Invisível para o usuário) -->
-
-    <!-- Ativa o suporte para acentos (á, é, í, õ, ç) -->
     <meta charset="UTF-8">
-
-    <!-- Configura o site para caber direitinho na tela do celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Texto que fica escrito lá em cima, na aba do navegador -->
     <title>Agro Forte, Futuro Sustentável</title>
-
-    <!-- Vincula este arquivo ao style.css para ganhar cores e estilo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- CONTEÚDO VISÍVEL (Tudo o que aparece na tela) -->
 
-    <!-- TOPO DO SITE: Funciona como a faixa superior da página -->
-    <header>
-        <!-- Logotipo do site -->
-        <div class="logo">AgroSustentável</div>
-        
-        <!-- Menu com os botões de navegação -->
-        <nav>
+    <!-- LINK DE ACESSIBILIDADE OCULTO (WCAG): Permite pular o menu via tecla TAB -->
+    <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo principal</a>
+
+    <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
+    <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
+        <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
+        <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar Letra</button>
+        <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir Letra</button>
+    </div>
+
+    <!-- TOPO DO SITE -->
+    <header role="banner">
+        <div class="logo" id="logoSite">AgroSustentável</div>
+        <nav role="navigation" aria-label="Menu Principal">
             <a href="#inicio">Início</a>
             <a href="#pilares">Pilares</a>
-            <a href="#contato">Contato</a>
+            <a href="#simulador">Simulador</a>
         </nav>
     </header>
 
-    <!-- CORPO DO SITE: Guarda o conteúdo principal da página -->
-    <main>
+    <!-- CORPO DO SITE (id conectado ao link de acessibilidade) -->
+    <main id="conteudo-principal" role="main">
         
-        <!-- Bloco 1: Banner de abertura (A primeira coisa que o usuário vê) -->
-        <section id="inicio" class="hero">
-            <h1>Agro Forte, Futuro Sustentável</h1>
+        <!-- Bloco 1: Banner de abertura -->
+        <section id="inicio" class="hero" aria-labelledby="titulo-principal">
+            <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
             <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
-            
-            <!-- Botão que ganha ação de clique através do script.js -->
-            <button id="btnSaibaMais">Saiba Mais</button>
+            <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Saiba Mais</button>
         </section>
 
         <!-- Bloco 2: Seção de conteúdo explicativo -->
-        <section id="pilares" class="features">
-            <h2>Nossos Pilares</h2>
-            
-            <!-- Caixa grande que segura os três cartões menores lado a lado -->
+        <section id="pilares" class="features" aria-labelledby="titulo-pilares">
+            <h2 id="titulo-pilares">Nossos Pilares</h2>
             <div class="cards-container">
                 
-               <!-- Cartão Lado a Lado - Item 1 (Tecnologia) -->
-<div class="card">
-    <img src="drone.jpg.png" alt="Drone voando sobre uma plantação verde" class="imagem-cartao">
-    <h3>Tecnologia</h3>
-    <p>Uso de drones e IA para otimizar recursos.</p>
-</div>
+                <!-- Cartão 1 (Tecnologia) - Caminho atualizado para a pasta assets/ -->
+                <article class="card" tabindex="0">
+                    <img src="assets/drone.jpg.png" alt="Drone branco de quatro hélices voando baixo e monitorando uma plantação de soja verdejante" class="imagem-cartao">
+                    <h3>Tecnologia</h3>
+                    <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
+                </article>
 
-<!-- Cartão Lado a Lado - Item 2 (Preservação) -->
-<div class="card">
-    <img src="planta.jpg" alt="Mãos segurando terra com uma pequena planta brotando" class="imagem-cartao">
-    <h3>Preservação</h3>
-    <p>Técnicas de manejo que protegem o solo e a água.</p>
-</div>
+                <!-- Cartão 2 (Preservação) - Caminho atualizado para a pasta assets/ -->
+                <article class="card" tabindex="0">
+                    <img src="assets/planta.jpg" alt="Mãos humanas conchadas segurando terra escura com um broto verde crescendo no centro" class="imagem-cartao">
+                    <h3>Preservação</h3>
+                    <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
+                </article>
 
-<!-- Cartão Lado a Lado - Item 3 (Produção) -->
-<div class="card">
-    <img src="trigo.jpg.png" alt="Grande plantação de trigo dourado sob o sol" class="imagem-cartao">
-    <h3>Produção</h3>
-    <p>Alimento de qualidade com pegada de carbono reduzida.</p>
-</div>
+                <!-- Cartão 3 (Produção) - Caminho atualizado para a pasta assets/ -->
+                <article class="card" tabindex="0">
+                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado sob o sol brilhante de fim de tarde" class="imagem-cartao">
+                    <h3>Produção</h3>
+                    <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
+                </article>
 
+            </div>
+        </section>
+
+        <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
+        <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
+            <h2 id="titulo-simulador">Diagnóstico de Sustentabilidade Agrícola</h2>
+            <p id="instrucao-quiz">Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
+            
+            <div class="quiz-container">
+                
+                <!-- Pergunta 1 -->
+                <div class="pergunta-bloco">
+                    <label for="p1" class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</label>
+                    <select id="p1" class="select-quiz" required aria-describedby="instrucao-quiz">
+                        <option value="">-- Escolha uma opção --</option>
+                        <option value="10">Plantio direto completo e rotação de culturas constante</option>
+                        <option value="5">Aração tradicional combinada com cobertura de solo parcial</option>
+                        <option value="0">Reviramento intensivo do solo sem períodos de descanso</option>
+                    </select>
+                </div>
+
+                <!-- Pergunta 2 -->
+                <div class="pergunta-bloco">
+                    <label for="p2" class="pergunta-texto">2. Qual é a principal fonte de defensivos e insumos utilizada?</label>
+                    <select id="p2" class="select-quiz" required aria-describedby="instrucao-quiz">
+                        <option value="">-- Escolha uma opção --</option>
+                        <option value="10">Uso prioritário de bioinsumos e manejo integrado de pragas (MIP)</option>
+                        <option value="5">Uso moderado de químicos apenas quando surgem infestações</option>
+                        <option value="0">Aplicação pesada e calendarizada de químicos tradicionais</option>
+                    </select>
+                </div>
+
+                <!-- Pergunta 3 -->
+                <div class="pergunta-bloco">
+                    <label for="p3" class="pergunta-texto">3. Como funciona a gestão de recursos hídricos e tecnologia?</label>
+                    <select id="p3" class="select-quiz" required aria-describedby="instrucao-quiz">
+                        <option value="">-- Escolha uma opção --</option>
+                        <option value="10">Irrigação de precisão por gotejamento controlada por sensores/IA</option>
+                        <option value="5">Irrigação comum por aspersão sem monitoramento de umidade</option>
+                        <option value="0">Uso de água em abundância por inundação ou sem controle de vazão</option>
+                    </select>
+                </div>
+                
+                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade com base nas respostas acima">Calcular Nota Final</button>
+                
+                <!-- O atributo aria-live avisa o leitor de tela do deficiente assim que o cálculo sair -->
+                <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
 
     </main>
 
-        <!-- Seção Interativa: Simulador Sustentável -->
-        <section id="simulador" class="interactive-section">
-            <h2>Avalie sua Prática Agrícola</h2>
-            <p>Selecione a técnica mais utilizada na sua produção para medir o nível de sustentabilidade:</p>
-            
-            <div class="quiz-container">
-                <select id="opcaoQuiz">
-                    <option value="">-- Escolha uma opção --</option>
-                    <option value="positivo">Uso de bioinsumos, plantio direto e rotação de culturas</option>
-                    <option value="neutro">Uso moderado de químicos combinado com tecnologia de precisão</option>
-                    <option value="negativo">Uso intensivo de defensivos agrícolas tradicionais sem monitoramento</option>
-                </select>
-                
-                <button id="btnVerificar">Analisar Impacto</button>
-                <div id="resultadoQuiz" class="resultado-box"></div>
-            </div>
-        </section>
-    
-    <!-- RODAPÉ: A faixa final na base da página -->
-    <footer>
+    <!-- RODAPÉ -->
+    <footer role="contentinfo">
         <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Ativa o arquivo script.js para dar vida e movimentos ao site -->
     <script src="script.js"></script>
 </body>
 </html>
