@@ -1,87 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- CONFIGURAÇÕES DO SITE (Invisível para o usuário) -->
-
-    <!-- Ativa o suporte para acentos (á, é, í, õ, ç) -->
     <meta charset="UTF-8">
-
-    <!-- Configura o site para caber direitinho na tela do celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Texto que fica escrito lá em cima, na aba do navegador -->
     <title>Agro Forte, Futuro Sustentável</title>
-
-    <!-- Vincula este arquivo ao style.css para ganhar cores e estilo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- CONTEÚDO VISÍVEL (Tudo o que aparece na tela) -->
 
-    <!-- TOPO DO SITE: Funciona como a faixa superior da página -->
-    <header>
-        <!-- Logotipo do site -->
-        <div class="logo">AgroSustentável</div>
-        
-        <!-- Menu com os botões de navegação -->
-        <nav>
+    <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
+    <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
+        <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
+        <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar Letra</button>
+        <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir Letra</button>
+    </div>
+
+    <!-- TOPO DO SITE -->
+    <header role="banner">
+        <div class="logo" id="logoSite">AgroSustentável</div>
+        <nav role="navigation" aria-label="Menu Principal">
             <a href="#inicio">Início</a>
             <a href="#pilares">Pilares</a>
-            <a href="#contato">Contato</a>
+            <a href="#simulador">Simulador</a>
         </nav>
     </header>
 
-    <!-- CORPO DO SITE: Guarda o conteúdo principal da página -->
-    <main>
+    <!-- CORPO DO SITE -->
+    <main role="main">
         
-        <!-- Bloco 1: Banner de abertura (A primeira coisa que o usuário vê) -->
-        <section id="inicio" class="hero">
-            <h1>Agro Forte, Futuro Sustentável</h1>
+        <!-- Bloco 1: Banner de abertura -->
+        <section id="inicio" class="hero" aria-labelledby="titulo-principal">
+            <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
             <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
-            
-            <!-- Botão que ganha ação de clique através do script.js -->
-            <button id="btnSaibaMais">Saiba Mais</button>
+            <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Saiba Mais</button>
         </section>
 
         <!-- Bloco 2: Seção de conteúdo explicativo -->
-        <section id="pilares" class="features">
-            <h2>Nossos Pilares</h2>
+        <section id="pilares" class="features" aria-labelledby="titulo-pilares">
+            <h2 id="titulo-pilares">Nossos Pilares</h2>
             
-            <!-- Caixa grande que segura os três cartões menores lado a lado -->
             <div class="cards-container">
                 
-               <!-- Cartão Lado a Lado - Item 1 (Tecnologia) -->
-<div class="card">
-    <img src="drone.jpg.png" alt="Drone voando sobre uma plantação verde" class="imagem-cartao">
-    <h3>Tecnologia</h3>
-    <p>Uso de drones e IA para otimizar recursos.</p>
-</div>
+                <!-- Cartão 1 (Tecnologia) -->
+                <article class="card" tabindex="0">
+                    <img src="drone.jpg.png" alt="Drone branco sobrevoando plantação verdejante em linha reta" class="imagem-cartao">
+                    <h3>Tecnologia</h3>
+                    <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
+                </article>
 
-<!-- Cartão Lado a Lado - Item 2 (Preservação) -->
-<div class="card">
-    <img src="planta.jpg" alt="Mãos segurando terra com uma pequena planta brotando" class="imagem-cartao">
-    <h3>Preservação</h3>
-    <p>Técnicas de manejo que protegem o solo e a água.</p>
-</div>
+                <!-- Cartão 2 (Preservação) -->
+                <article class="card" tabindex="0">
+                    <img src="planta.jpg" alt="Mãos humanas segurando terra preta com um broto verde crescendo centralizado" class="imagem-cartao">
+                    <h3>Preservação</h3>
+                    <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
+                </article>
 
-<!-- Cartão Lado a Lado - Item 3 (Produção) -->
-<div class="card">
-    <img src="trigo.jpg.png" alt="Grande plantação de trigo dourado sob o sol" class="imagem-cartao">
-    <h3>Produção</h3>
-    <p>Alimento de qualidade com pegada de carbono reduzida.</p>
-</div>
+                <!-- Cartão 3 (Produção) -->
+                <article class="card" tabindex="0">
+                    <img src="trigo.jpg.png" alt="Plantação de trigo dourado sob o sol brilhante do final de tarde" class="imagem-cartao">
+                    <h3>Produção</h3>
+                    <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
+                </article>
 
             </div>
         </section>
 
-    </main>
-
         <!-- Seção Interativa: Simulador Sustentável -->
-        <section id="simulador" class="interactive-section">
-            <h2>Avalie sua Prática Agrícola</h2>
+        <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
+            <h2 id="titulo-simulador">Avalie sua Prática Agrícola</h2>
             <p>Selecione a técnica mais utilizada na sua produção para medir o nível de sustentabilidade:</p>
             
             <div class="quiz-container">
+                <label for="opcaoQuiz" class="sr-only">Selecione uma prática agrícola da lista:</label>
                 <select id="opcaoQuiz">
                     <option value="">-- Escolha uma opção --</option>
                     <option value="positivo">Uso de bioinsumos, plantio direto e rotação de culturas</option>
@@ -89,17 +79,20 @@
                     <option value="negativo">Uso intensivo de defensivos agrícolas tradicionais sem monitoramento</option>
                 </select>
                 
-                <button id="btnVerificar">Analisar Impacto</button>
-                <div id="resultadoQuiz" class="resultado-box"></div>
+                <button id="btnVerificar" aria-label="Analisar impacto ambiental da opção selecionada">Analisar Impacto</button>
+                
+                <!-- aria-live avisa o leitor de tela do cego assim que o texto mudar por causa do clique -->
+                <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
-    
-    <!-- RODAPÉ: A faixa final na base da página -->
-    <footer>
+
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer role="contentinfo">
         <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Ativa o arquivo script.js para dar vida e movimentos ao site -->
     <script src="script.js"></script>
 </body>
 </html>
