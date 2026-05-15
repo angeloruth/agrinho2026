@@ -1,31 +1,37 @@
 document.addEventListener('DOMContentLoaded', () => {
     
     // =========================================================================
-    // LÓGICA 1: ROLAGEM SUAVE (CORREÇÃO DE LINKS DO MENU)
+    // LÓGICA 1: ROLAGEM NATAL E MAPEAMENTO DE ÂNCORAS
     // =========================================================================
     const botaoSaibaMais = document.getElementById('btnSaibaMais');
     if (botaoSaibaMais) {
         botaoSaibaMais.addEventListener('click', () => {
-            document.getElementById('pilares').scrollIntoView({ behavior: 'smooth' });
+            const secaoPilares = document.getElementById('pilares');
+            if (secaoPilares) {
+                secaoPilares.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     }
 
-    // Intercepta todos os cliques em links internos de navegação do menu para garantir rolagem fluida
-    const linksMenu = document.querySelectorAll('header nav a[href^="#"]');
-    linksMenu.forEach(link => {
+    // Intercepta de forma segura a navegação do menu nativo do HTML para links com "#"
+    const linksNavegacao = document.querySelectorAll('.link-navegacao');
+    linksNavegacao.forEach(link => {
         link.addEventListener('click', (evento) => {
-            evento.preventDefault(); // Impede o salto seco padrão do navegador
-            const idAlvo = link.getAttribute('href').substring(1);
-            const elementoAlvo = document.getElementById(idAlvo);
+            const idAlvo = link.getAttribute('href');
             
-            if (elementoAlvo) {
-                elementoAlvo.scrollIntoView({ behavior: 'smooth' });
+            // Tratamento especial: se o id for apenas "#", ignora o preventDefault
+            if (idAlvo.startsWith('#') && idAlvo.length > 1) {
+                evento.preventDefault(); 
+                const elementoAlvo = document.querySelector(idAlvo);
+                if (elementoAlvo) {
+                    elementoAlvo.scrollIntoView({ behavior: 'smooth' });
+                }
             }
         });
     });
 
     // =========================================================================
-    // LÓGICA 2: SIMULADOR INTERATIVO (CÁLCULO E MANIPULAÇÃO DO DOM)
+    // LÓGICA 2: SIMULADOR DE SUSTENTABILIDADE (PRODUÇÃO DE DADOS NO DOM)
     // =========================================================================
     const botaoVerificar = document.getElementById('btnVerificar');
     const caixaResultado = document.getElementById('resultadoQuiz');
@@ -67,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // LÓGICA 3: CONTROLES DE ABERTURA E FECHAMENTO DO MENU LATERAL (SIDEBAR)
+    // LÓGICA 3: CONTROLE DE FLUXO DO MENU LATERAL (SIDEBAR REATIVO)
     // =========================================================================
     const btnAbrirSidebar = document.getElementById('btnAbrirMenuLateral');
     const btnFecharSidebar = document.getElementById('btnFecharMenuLateral');
@@ -81,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.classList.add('visivel');
             btnAbrirSidebar.setAttribute('aria-expanded', 'true');
             sidebar.setAttribute('aria-hidden', 'false');
-            btnFecharSidebar.focus(); // Acessibilidade: direciona o foco para o botão fechar
+            btnFecharSidebar.focus();
         });
 
         const fecharMenu = () => {
@@ -89,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.classList.remove('visivel');
             btnAbrirSidebar.setAttribute('aria-expanded', 'false');
             sidebar.setAttribute('aria-hidden', 'true');
-            btnAbrirSidebar.focus(); // Acessibilidade: retorna o foco ao botão de abertura
+            btnAbrirSidebar.focus();
         };
 
         btnFecharSidebar.addEventListener('click', fecharMenu);
@@ -97,44 +103,44 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // LÓGICA 4: TRANSIÇÃO DOS SLIDES DA GALERIA (MENU LATERAL)
+    // LÓGICA 4: CARROSSEL DE FOTOS DESLIZANTE (INTERATIVIDADE PREMIUM)
     // =========================================================================
-    const slides = document.querySelectorAll('.galeria-slide');
+    const trilho = document.getElementById('carrosselTrilho');
+    const slides = document.querySelectorAll('.carrossel-slide');
     const btnAnterior = document.getElementById('btnSlideAnterior');
     const btnProximo = document.getElementById('btnSlideProximo');
-    let indiceSlideAtual = 0;
+    
+    let indiceAtual = 0;
+    const totalSlides = slides.length;
 
-    function atualizarExibicaoSlides(novoIndice) {
-        // Remove a classe ativa do slide que estava aparecendo
-        slides[indiceSlideAtual].classList.remove('ativo');
-        
-        // Atualiza o índice garantindo um loop infinito circular
-        if (novoIndice >= slides.length) {
-            indiceSlideAtual = 0;
+    function moverCarrossel(novoIndice) {
+        // Validação circular infinita para as pontas do carrossel
+        if (novoIndice >= totalSlides) {
+            indiceAtual = 0;
         } else if (novoIndice < 0) {
-            indiceSlideAtual = slides.length - 1;
+            indiceAtual = totalSlides - 1;
         } else {
-            indiceSlideAtual = novoIndice;
+            indiceAtual = novoIndice;
         }
-        
-        // Adiciona a classe ativa no novo slide correspondente
-        slides[indiceSlideAtual].classList.add('ativo');
+
+        // Calcula a porcentagem exata de deslocamento baseado na largura de 1 slide (100% / número total de slides)
+        // Como o trilho tem 300% de largura total, deslocamos -33.333% para avançar 1 slide de forma simétrica
+        const deslocamentoPorcentagem = -(indiceAtual * (100 / totalSlides));
+        trilho.style.transform = `translateX(${deslocamentoPorcentagem}%)`;
     }
 
-    if (btnAnterior && btnProximo && slides.length > 0) {
-        // Clique na seta para avançar imagem
+    if (btnAnterior && btnProximo && trilho && totalSlides > 0) {
         btnProximo.addEventListener('click', () => {
-            atualizarExibicaoSlides(indiceSlideAtual + 1);
+            moverCarrossel(indiceAtual + 1);
         });
 
-        // Clique na seta para voltar imagem
         btnAnterior.addEventListener('click', () => {
-            atualizarExibicaoSlides(indiceSlideAtual - 1);
+            moverCarrossel(indiceAtual - 1);
         });
     }
 
     // =========================================================================
-    // LÓGICA 5: FERRAMENTAS DE ACESSIBILIDADE (ZOOM DE FONTE & ALTO CONTRASTE)
+    // LÓGICA 5: FERRAMENTAS DE ACESSIBILIDADE WCAG (ZOOM E CONTRASTE)
     // =========================================================================
     const btnContraste = document.getElementById('btnContraste');
     const btnAumentarTexto = document.getElementById('btnAumentarTexto');
@@ -144,27 +150,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnContraste) {
         btnContraste.addEventListener('click', () => {
             document.body.classList.toggle('alto-contraste');
-            btnContraste.textContent = document.body.classList.contains('alto-contraste') 
-                ? "Desativar Alto Contraste" 
-                : "Ativar Alto Contraste";
-        });
-    }
-
-    if (btnAumentarTexto) {
-        btnAumentarTexto.addEventListener('click', () => {
-            if (tamanhoFonteAtual < 140) {
-                tamanhoFonteAtual += 10;
-                document.documentElement.style.fontSize = tamanhoFonteAtual + '%';
-            }
-        });
-    }
-
-    if (btnDiminuirTexto) {
-        btnDiminuirTexto.addEventListener('click', () => {
-            if (tamanhoFonteAtual > 90) {
-                tamanhoFonteAtual -= 10;
-                document.documentElement.style.fontSize = tamanhoFonteAtual + '%';
-            }
-        });
-    }
-});
+            btnContraste.textContent = document.body.classList.contains('alto
