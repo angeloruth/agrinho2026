@@ -8,73 +8,134 @@
 </head>
 <body>
 
-    <!-- LINK DE ACESSIBILIDADE OCULTO (WCAG): Permite pular o menu via tecla TAB -->
     <a href="#conteudo-principal" class="pular-link">Pular para o conteúdo principal</a>
 
     <!-- BARRA DE ACESSIBILIDADE FLUTUANTE -->
     <div class="barra-acessibilidade" role="complementary" aria-label="Ferramentas de Acessibilidade">
-        <button id="btnContraste" aria-label="Ativar Alto Contraste">Ativar Alto Contraste</button>
-        <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar Letra</button>
-        <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir Letra</button>
+        <button id="btnContraste" aria-label="Ativar Alto Contraste">🌓 Alternar Contraste</button>
+        <button id="btnAumentarTexto" aria-label="Aumentar tamanho do texto">A+ Aumentar</button>
+        <button id="btnDiminuirTexto" aria-label="Diminuir tamanho do texto">A- Diminuir</button>
     </div>
 
-    <!-- TOPO DO SITE -->
+    <!-- TOPO DO SITE COM BOTÃO DO MENU LATERAL -->
     <header role="banner">
-        <div class="logo" id="logoSite">AgroSustentável</div>
+        <div class="header-esquerda">
+            <button id="btnAbrirMenu" class="btn-menu-hamburguer" aria-label="Abrir menu lateral de informações">☰</button>
+            <div class="logo" id="logoSite">AgroSustentável</div>
+        </div>
         <nav role="navigation" aria-label="Menu Principal">
             <a href="#inicio">Início</a>
             <a href="#pilares">Pilares</a>
+            <a href="#galeria">Galeria</a>
             <a href="#simulador">Simulador</a>
         </nav>
     </header>
 
-    <!-- CORPO DO SITE (id conectado ao link de acessibilidade) -->
+    <!-- MENU LATERAL RETRÁTIL (SIDEBAR) -->
+    <aside id="menuLateral" class="sidebar" aria-hidden="true" role="complementary" aria-label="Painel de Informações Adicionais">
+        <div class="sidebar-header">
+            <h3>Central de Informações</h3>
+            <button id="btnFecharMenu" aria-label="Fechar menu lateral">✕</button>
+        </div>
+        <div class="sidebar-conteudo">
+            <p class="sidebar-intro">Explore conteúdos profundos sobre o ecossistema do agro do futuro:</p>
+            
+            <div class="info-card-lateral">
+                <h4>📊 Pegada de Carbono</h4>
+                <p>A agricultura de precisão pode reduzir em até 40% a emissão de gases estufa através do manejo inteligente do solo.</p>
+            </div>
+            
+            <div class="info-card-lateral">
+                <h4>💧 Gestão Hídrica</h4>
+                <p>Sensores subterrâneos de umidade evitam o desperdício, liberando água apenas quando as raízes necessitam.</p>
+            </div>
+
+            <div class="info-card-lateral">
+                <h4>🐝 Biodiversidade</h4>
+                <p>Corredores ecológicos conectam fragmentos florestais, protegendo polinizadores essenciais para as culturas.</p>
+            </div>
+        </div>
+    </aside>
+
     <main id="conteudo-principal" role="main">
         
-        <!-- Bloco 1: Banner de abertura -->
+        <!-- Bloco 1: Banner Hero Moderno -->
         <section id="inicio" class="hero" aria-labelledby="titulo-principal">
-            <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
-            <p>O equilíbrio perfeito entre a alta produtividade e a preservação do meio ambiente.</p>
-            <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Saiba Mais</button>
-        </section>
-
-        <!-- Bloco 2: Seção de conteúdo explicativo -->
-        <section id="pilares" class="features" aria-labelledby="titulo-pilares">
-            <h2 id="titulo-pilares">Nossos Pilares</h2>
-            <div class="cards-container">
-                
-                <!-- Cartão 1 (Tecnologia) - Caminho atualizado para a pasta assets/ -->
-                <article class="card" tabindex="0">
-                    <img src="assets/drone.jpg.png" alt="Drone branco de quatro hélices voando baixo e monitorando uma plantação de soja verdejante" class="imagem-cartao">
-                    <h3>Tecnologia</h3>
-                    <p>Uso de drones e inteligência artificial para otimizar recursos naturais.</p>
-                </article>
-
-                <!-- Cartão 2 (Preservação) - Caminho atualizado para a pasta assets/ -->
-                <article class="card" tabindex="0">
-                    <img src="assets/planta.jpg" alt="Mãos humanas conchadas segurando terra escura com um broto verde crescendo no centro" class="imagem-cartao">
-                    <h3>Preservação</h3>
-                    <p>Técnicas modernas de manejo que protegem ativamente o solo e as fontes de água.</p>
-                </article>
-
-                <!-- Cartão 3 (Produção) - Caminho atualizado para a pasta assets/ -->
-                <article class="card" tabindex="0">
-                    <img src="assets/trigo.jpg.png" alt="Plantação imensa de trigo maduro e dourado sob o sol brilhante de fim de tarde" class="imagem-cartao">
-                    <h3>Produção</h3>
-                    <p>Alimento de alta qualidade gerado com pegada de carbono drasticamente reduzida.</p>
-                </article>
-
+            <div class="hero-glass-card">
+                <h1 id="titulo-principal">Agro Forte, Futuro Sustentável</h1>
+                <p>O equilíbrio perfeito entre a alta produtividade tecnológica e a preservação ambiental rigorosa.</p>
+                <button id="btnSaibaMais" aria-label="Rolar a página até a seção de Nossos Pilares">Explorar Pilares</button>
             </div>
         </section>
 
-        <!-- Seção Interativa Avançada: Diagnóstico de Sustentabilidade -->
+        <!-- Bloco 2: Nossos Pilares -->
+        <section id="pilares" class="features" aria-labelledby="titulo-pilares">
+            <h2 id="titulo-pilares">Nossos Pilares</h2>
+            <div class="cards-container">
+                <article class="card" tabindex="0">
+                    <img src="assets/drone.jpg.png" alt="Drone de monitoramento agrícola" class="imagem-cartao">
+                    <h3>Tecnologia</h3>
+                    <p>Inteligência artificial espacial e drones automatizados mapeando a saúde da lavoura em tempo real.</p>
+                </article>
+
+                <article class="card" tabindex="0">
+                    <img src="assets/planta.jpg" alt="Mãos segurando solo fértil" class="imagem-cartao">
+                    <h3>Preservação</h3>
+                    <p>Sistemas integrados de plantio direto que regeneram microrganismos e fixam nitrogênio no solo.</p>
+                </article>
+
+                <article class="card" tabindex="0">
+                    <img src="assets/trigo.jpg.png" alt="Plantação de trigo dourado" class="imagem-cartao">
+                    <h3>Produção</h3>
+                    <p>Maximização do rendimento por hectare reduzindo a necessidade de abertura de novas áreas nativas.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- NOVO BLOCO: GALERIA INTERATIVA / CARROSSEL -->
+        <section id="galeria" class="galeria-section" aria-labelledby="titulo-galeria">
+            <h2 id="titulo-galeria">Inovações Visuais do Campo</h2>
+            <p class="subtitulo-secao">Use os botões para navegar pelas tecnologias sustentáveis:</p>
+            
+            <div class="carrossel-container">
+                <div class="carrossel-slides">
+                    <!-- Slide 1 -->
+                    <div class="slide ativo">
+                        <img src="assets/drone.jpg.png" alt="Drone fazendo pulverização direcionada">
+                        <div class="slide-legenda">
+                            <h4>Monitoramento Aéreo</h4>
+                            <p>Drones reduzem o uso de defensivos aplicando-os somente nos focos exatos das pragas.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="slide">
+                        <img src="assets/planta.jpg" alt="Cultivos hidropônicos sustentáveis">
+                        <div class="slide-legenda">
+                            <h4>Sistemas Regenerativos</h4>
+                            <p>Raízes fortes em solos ricos capturam mais carbono da atmosfera planetária.</p>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="slide">
+                        <img src="assets/trigo.jpg.png" alt="Colheitadeira computadorizada de alta precisão">
+                        <div class="slide-legenda">
+                            <h4>Colheita Tecnológica</h4>
+                            <p>Máquinas conectadas geram mapas de produtividade metro a metro.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Botões de controle do carrossel -->
+                <button class="btn-carrossel anterior" id="btnAnteriorSlide" aria-label="Foto anterior">❮</button>
+                <button class="btn-carrossel proximo" id="btnProximoSlide" aria-label="Próxima foto">❯</button>
+            </div>
+        </section>
+
+        <!-- Seção Interativa: Diagnóstico -->
         <section id="simulador" class="interactive-section" aria-labelledby="titulo-simulador">
             <h2 id="titulo-simulador">Diagnóstico de Sustentabilidade Agrícola</h2>
-            <p id="instrucao-quiz">Responda às 3 perguntas abaixo para descobrir a nota ecológica da sua propriedade:</p>
+            <p id="instrucao-quiz">Responda às perguntas abaixo para calcular a eficiência ecológica da sua produção:</p>
             
             <div class="quiz-container">
-                
-                <!-- Pergunta 1 -->
                 <div class="pergunta-bloco">
                     <label for="p1" class="pergunta-texto">1. Como é feito o manejo do solo na sua propriedade?</label>
                     <select id="p1" class="select-quiz" required aria-describedby="instrucao-quiz">
@@ -85,7 +146,6 @@
                     </select>
                 </div>
 
-                <!-- Pergunta 2 -->
                 <div class="pergunta-bloco">
                     <label for="p2" class="pergunta-texto">2. Qual é a principal fonte de defensivos e insumos utilizada?</label>
                     <select id="p2" class="select-quiz" required aria-describedby="instrucao-quiz">
@@ -96,7 +156,6 @@
                     </select>
                 </div>
 
-                <!-- Pergunta 3 -->
                 <div class="pergunta-bloco">
                     <label for="p3" class="pergunta-texto">3. Como funciona a gestão de recursos hídricos e tecnologia?</label>
                     <select id="p3" class="select-quiz" required aria-describedby="instrucao-quiz">
@@ -107,16 +166,13 @@
                     </select>
                 </div>
                 
-                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade com base nas respostas acima">Calcular Nota Final</button>
-                
-                <!-- O atributo aria-live avisa o leitor de tela do deficiente assim que o cálculo sair -->
+                <button id="btnVerificar" aria-label="Calcular nota final de sustentabilidade">Calcular Nota Final</button>
                 <div id="resultadoQuiz" class="resultado-box" aria-live="polite"></div>
             </div>
         </section>
 
     </main>
 
-    <!-- RODAPÉ -->
     <footer role="contentinfo">
         <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
     </footer>
@@ -124,3 +180,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
